@@ -19,8 +19,7 @@ function App() {
     currentPlayerIndex: -1,
     currentSong: null,
     songs: createSongsList(),
-    roundNumber: 0,
-    skipsRemaining: 3
+    roundNumber: 0
   })
 
   const handleStartSeating = () => {
@@ -45,7 +44,8 @@ function App() {
       const newPlayer: Player = {
         id: generatePlayerId(),
         name: uniqueName,
-        score: 0
+        score: 0,
+        skipsRemaining: 3
       }
       
       toast.success(`${uniqueName} heeft plaatsgenomen!`, {
@@ -138,8 +138,7 @@ function App() {
         songs: updatedSongs,
         currentPlayerIndex: guesserIndex,
         currentSong: null,
-        roundNumber: current.roundNumber + 1,
-        skipsRemaining: 3
+        roundNumber: current.roundNumber + 1
       }
     })
   }
@@ -148,26 +147,14 @@ function App() {
     setGameState((current) => {
       if (!current) return current!
       
-      const newSkipsRemaining = current.skipsRemaining - 1
+      const currentPlayer = current.players[current.currentPlayerIndex]
+      const newSkipsRemaining = currentPlayer.skipsRemaining - 1
       
       if (newSkipsRemaining < 0) {
-        const nextPlayerIndex = getRandomPlayerIndex(current.players, current.currentPlayerIndex)
-        
-        toast.warning('Geen skips meer over!', {
-          description: 'Je verliest je beurt. Volgende speler is aan de beurt.'
+        toast.error('Geen skips meer over!', {
+          description: 'Je hebt al je 3 skips gebruikt.'
         })
-
-        const updatedSongs = current.songs.map(s =>
-          s.id === current.currentSong?.id ? { ...s, used: true } : s
-        )
-
-        return {
-          ...current,
-          songs: updatedSongs,
-          currentPlayerIndex: nextPlayerIndex,
-          currentSong: null,
-          skipsRemaining: 3
-        }
+        return current
       }
 
       toast.info(`Lied overgeslagen (${newSkipsRemaining} ${newSkipsRemaining === 1 ? 'skip' : 'skips'} over)`, {
@@ -188,11 +175,17 @@ function App() {
         }
       }
 
+      const updatedPlayers = current.players.map((p, idx) =>
+        idx === current.currentPlayerIndex 
+          ? { ...p, skipsRemaining: newSkipsRemaining } 
+          : p
+      )
+
       return {
         ...current,
+        players: updatedPlayers,
         songs: updatedSongs,
-        currentSong: newSong,
-        skipsRemaining: newSkipsRemaining
+        currentSong: newSong
       }
     })
   }
@@ -214,8 +207,7 @@ function App() {
       currentPlayerIndex: -1,
       currentSong: null,
       songs: createSongsList(),
-      roundNumber: 0,
-      skipsRemaining: 3
+      roundNumber: 0
     })
   }
 
@@ -251,7 +243,7 @@ function App() {
           players={gameState.players}
           currentPlayerIndex={gameState.currentPlayerIndex}
           currentSong={gameState.currentSong}
-          skipsRemaining={gameState.skipsRemaining}
+          skipsRemaining={gameState.players[gameState.currentPlayerIndex]?.skipsRemaining ?? 3}
           onRevealSong={handleRevealSong}
           onCorrectGuess={handleCorrectGuess}
           onSkipSong={handleSkipSong}

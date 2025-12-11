@@ -2,6 +2,7 @@ export interface Player {
   id: string
   name: string
   score: number
+  skipsRemaining: number
 }
 
 export interface Song {
@@ -20,5 +21,4 @@ export interface GameState {
   currentSong: Song | null
   songs: Song[]
   roundNumber: number
-  skipsRemaining: number
 }

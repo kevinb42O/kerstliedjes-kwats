@@ -47,6 +47,12 @@ export function PlayingScreen({
   const leaderScore = useMemo(() => Math.max(...players.map(p => p.score)), [players])
 
   useEffect(() => {
+    if (currentSong) {
+      setShowSong(true)
+    }
+  }, [currentSong])
+
+  useEffect(() => {
     if (!showSong && currentPlayer) {
       setIsSelecting(true)
       let count = 0
@@ -81,7 +87,6 @@ export function PlayingScreen({
 
   const handleSkip = useCallback(() => {
     onSkipSong()
-    setShowSong(false)
   }, [onSkipSong])
 
   const handleEndGame = useCallback(() => {
