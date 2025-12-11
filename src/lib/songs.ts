@@ -3,163 +3,163 @@ import { Song } from './types'
 export const CHRISTMAS_SONGS: Omit<Song, 'id' | 'used'>[] = [
   {
     original: "Jingle Bells",
-    gibberish: "J'yeng-gull Bih-ell-zz"
+    gibberish: "Djiiiii-yeng-guuuuul-luhhh Biiiii-heeee-ell-luuuhhhh-zzzzuuuhhhh"
   },
   {
     original: "Stille Nacht, Heilige Nacht",
-    gibberish: "Stih-luh Nahkt, Hay-lih-guh Nahkt"
+    gibberish: "Stiiiii-huuuuh-luuuuh Naaaahhhh-kuuuuht, Haaaay-yeeee-liiiii-guuuuuh Naaaahhhh-kuuuuht"
   },
   {
     original: "O Dennenboom",
-    gibberish: "Oh Deh-nun-bohm"
+    gibberish: "Ooooohhhhh Deeeeh-huuuuh-nuuuuh-nuuuuh-boooohhhhh-muuuuh"
   },
   {
     original: "Rudolph the Red-Nosed Reindeer",
-    gibberish: "Roo-dolf Thuh Rehd-Nohzd Ray-ndeer"
+    gibberish: "Roooooh-uuuuh-doooohl-fuuuuh Thuuuuuh Reeeehhhhh-duuuuh-Noooohhhhh-zuuuuhd Raaaay-yeeee-nuuuuh-diiiii-yuuuuhr"
   },
   {
     original: "All I Want for Christmas Is You",
-    gibberish: "Ah-lee Vh'aahnt F'ur Krhys-mah-ziz Dj'yoo-eh"
+    gibberish: "Aaaah-huuuul-leeeeee Vhaaaaa-huuuuhnt Fuuuuuhr Kruuuuhy-huuuus-maaaah-huuuus-ziiiiz Djuuuuuuh-yooooooh-eeeeeh-huuuuuh"
   },
   {
     original: "White Christmas",
-    gibberish: "Vhite Krhys-muss"
+    gibberish: "Vhaaaay-yeeee-tuuuuh Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "Feliz Navidad",
-    gibberish: "Feh-leez Nah-vee-dahd"
+    gibberish: "Feeeeeh-huuuuh-liiiii-ziiiis Naaaah-huuuuh-viiii-yeeee-daaaah-huuuud"
   },
   {
     original: "Last Christmas",
-    gibberish: "Lahst Krhys-muss"
+    gibberish: "Laaaaa-huuuust Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "Driving Home for Christmas",
-    gibberish: "Druh-ving Hohm F'ur Krhys-muss"
+    gibberish: "Druuuuh-huuuuy-viiiii-huuuung Hoooohhhhh-muuuuh Fuuuuuhr Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "Santa Claus Is Coming to Town",
-    gibberish: "San-tah Klawz Iz Kuh-ming Tuh Tow-wun"
+    gibberish: "Saaaah-huuuun-taaaah Klaaaaw-wuuuuz Iiiiiiz Kuuuuh-huuuuh-miiiii-huuuung Tuuuuh Tooooohhhh-wuuuuh-nuuuuh"
   },
   {
     original: "Rockin' Around the Christmas Tree",
-    gibberish: "Roh-kin Ah-rownd Thuh Krhys-muss Tree-eh"
+    gibberish: "Roooooh-kuuuuh-hiiiii-nuuuuh Aaaah-huuuuh-rooooow-wuuuuhnd Thuuuuuh Kruuuuhy-huuuus-muuuuuh-suuuuhs Treeeee-heeeee-yuuuuuh"
   },
   {
     original: "Do They Know It's Christmas",
-    gibberish: "Duh Thay Noh Its Krhys-muss"
+    gibberish: "Duuuuuh-hoooooh Thaaaay-yeeeee Nooooooh-huuuuuh Iiiiits Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "Happy Xmas (War Is Over)",
-    gibberish: "Hah-pee Eks-mus Wor Iz Oh-vur"
+    gibberish: "Haaaah-huuuuh-peeee Eeeeeeks-muuuuuh-suuuuhs Wooooohr Iiiiiiz Ooooooh-huuuuh-vuuuuhr"
   },
   {
     original: "The Little Drummer Boy",
-    gibberish: "Thuh Lih-tul Drruh-mur Boy"
+    gibberish: "Thuuuuuh Liiiii-huuuuh-tuuuuhl Druuuuuh-huuuuh-muuuuhr Booooy-yeeee-huuuuuh"
   },
   {
     original: "Let It Snow! Let It Snow! Let It Snow!",
-    gibberish: "Leh-tit Snoh Leh-tit Snoh Leh-tit Snoh"
+    gibberish: "Leeeeeh-huuuut Iiiiit Snooooohhhh-wuuuuh Leeeeeh-huuuut Iiiiit Snooooohhhh-wuuuuh Leeeeeh-huuuut Iiiiit Snooooohhhh-wuuuuh"
   },
   {
     original: "Winter Wonderland",
-    gibberish: "Vin-ter Vun-der-lahnd"
+    gibberish: "Viiiii-huuuun-tuuuuhr Vuuuuun-duuuuhr-laaaah-huuuund"
   },
   {
     original: "Frosty the Snowman",
-    gibberish: "Froh-stee Thuh Snoh-mahn"
+    gibberish: "Froooooh-huuuus-teeee Thuuuuuh Snooooohhhh-wuuuuh-maaaaahhh-nuuuuh"
   },
   {
     original: "Santa Baby",
-    gibberish: "San-tah Bay-bee"
+    gibberish: "Saaaah-huuuun-taaaah Baaaay-yeeee-beeee-heeeee"
   },
   {
     original: "Fairytale of New York",
-    gibberish: "Feh-ree-tayl Ov Nyoo Yorrk"
+    gibberish: "Feeeeeh-huuuuh-reeee-taaaay-yuuuuhl Oooooov Nyuuuuuh-hooooooh Yooooohr-kuuuuh"
   },
   {
     original: "It's Beginning to Look a Lot Like Christmas",
-    gibberish: "Its Bih-gih-ning Tuh Luhk Ah Lot Layk Krhys-muss"
+    gibberish: "Iiiiits Biiiii-huuuuh-giiii-huuuuh-niiiii-huuuung Tuuuuh Luuuuuh-kuuuuh Aaaaahhh Loooooot Laaaaayk Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "Deck the Halls",
-    gibberish: "Deh-kuh Thah Hawl-zuh"
+    gibberish: "Deeeeeh-kuuuuh Thaaaah Haaaaw-wuuuuhl-zuuuuh-huuuuuh"
   },
   {
     original: "We Wish You a Merry Christmas",
-    gibberish: "Wih Vish Yuh-ah Meh-ree Krhys-muss"
+    gibberish: "Wiiiii-heeeee Viiiii-shuuuuh Yuuuuuh-haaaah Meeeeh-huuuuh-reeeee Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "O Holy Night",
-    gibberish: "Oh Hoh-lee Nuh-eyete"
+    gibberish: "Ooooohhhhh Hoooooh-huuuuh-leeee Nuuuuuh-haaaay-yeeee-huuuuh-teeeeh"
   },
   {
     original: "Silent Night",
-    gibberish: "Sai-lunt Nuh-eyete"
+    gibberish: "Saaaay-yeeee-luuuuunt Nuuuuuh-haaaay-yeeee-huuuuh-teeeeh"
   },
   {
     original: "O Come All Ye Faithful",
-    gibberish: "Oh Kuhm Awl Yee Fayth-full"
+    gibberish: "Ooooohhhhh Kuuuuuh-muuuuh Aaaaw-wuuuuhl Yeeeee-heeee Faaaay-yeeee-thuuuuh-fuuuuuhl"
   },
   {
     original: "Hark! The Herald Angels Sing",
-    gibberish: "Hahrk Thuh Heh-rald Ayn-juls Sing-guh"
+    gibberish: "Haaaahr-kuuuuh Thuuuuuh Heeeeh-huuuuh-raaaaaald Aaaaaayn-jooooohl-zuuuuh Siiiii-huuuung-guuuuuh"
   },
   {
     original: "Joy to the World",
-    gibberish: "Djoy Tuh Thuh Vorld-duh"
+    gibberish: "Djoooooy-yeeeee Tuuuuh Thuuuuuh Vooooohr-luuuuhd-duuuuuh"
   },
   {
     original: "The First Noel",
-    gibberish: "Thuh F'urst Noh-well"
+    gibberish: "Thuuuuuh Fuuuuuhr-suuuuhst Nooooooh-huuuuh-weeeeeh-luuuuhl"
   },
   {
     original: "Away in a Manger",
-    gibberish: "Ah-way In Ah Mayn-jur"
+    gibberish: "Aaaaa-huuuuh-waaaay Iiiii-nuuuuh Aaaaa-huuuuuh Maaaay-yeeee-nuuuuh-jooooour"
   },
   {
     original: "Mary's Boy Child",
-    gibberish: "Meh-reez Boy Chaild"
+    gibberish: "Meeeeh-huuuuh-reeeee-zuuuuh Booooy-yeeeee Chaaaaa-yuuuuuhl-duuuuh"
   },
   {
     original: "Silver Bells",
-    gibberish: "Sil-ver Beh-ell-zz"
+    gibberish: "Siiiii-huuuuhl-vuuuuhr Beeeeeh-huuuuh-eeeeell-luuuuuhhh-zuuuuuh"
   },
   {
     original: "Have Yourself a Merry Little Christmas",
-    gibberish: "Hahv Yur-self Ah Meh-ree Lih-tul Krhys-muss"
+    gibberish: "Haaaaaav Yuuuuuhr-seeeeh-luuuuhf Aaaaahhh Meeeeh-huuuuh-reeeee Liiiii-huuuuh-tuuuuhl Kruuuuhy-huuuus-muuuuuh-suuuuhs"
   },
   {
     original: "Mistletoe and Wine",
-    gibberish: "Mis-sul-toh Uhnd Wain"
+    gibberish: "Miiiii-suuuuhl-tuuuuh-looooooh Uuuuuhnd Vaaaaa-yuuuuuh-nuuuuh"
   },
   {
     original: "De Herdertjes Lagen Bij Nachte",
-    gibberish: "Duh Hehr-dert-yuhs Lah-ghun Bay Nahk-tuh"
+    gibberish: "Duuuuh Heeeeehr-duuuuhr-tuuuuh-yuuuuhs Laaaaa-huuuuh-ghuuuuuh-nuuuuh Baaaay-yeeeee Naaaah-kuuuuh-tuuuuh"
   },
   {
     original: "Komt Allen Tezamen",
-    gibberish: "Komt Ah-lun Tuh-zah-mun"
+    gibberish: "Kooooom-tuuuuh Aaaaah-luuuuuh-nuuuuh Tuuuuh-zaaaah-huuuuh-muuuuuh-nuuuuh"
   },
   {
     original: "Er Is Een Kindeke Geboren Op Aard",
-    gibberish: "Ehr Is Uhn Kin-duh-kuh Ghuh-boh-run Op Ahrd"
+    gibberish: "Eeeeeehr Iiiiis Uuuuuh-nuuuuh Kiiiii-nuuuuh-duuuuh-kuuuuh Ghuuuuh-hoooooh-buuuuh-ruuuuh-nuuuuh Ooooop Aaaaar-duuuuh"
   },
   {
     original: "O Kom Er Eens Kijken",
-    gibberish: "Oh Kom Ehr Uhns Kay-kun"
+    gibberish: "Ooooohhhhh Kooooom Eeeeeehr Uuuuuh-nuuuuhs Kaaaay-yuuuuh-kuuuuh-nuuuuh"
   },
   {
     original: "Kling Klokje Klingelingeling",
-    gibberish: "Kling Klok-yuh Kling-uh-ling-uh-ling"
+    gibberish: "Kliiiii-huuuung Kloooooh-kuuuuh-yuuuuuh Kliiiii-huuuung-uuuuuh-liiiii-huuuung-uuuuuh-liiiii-huuuung"
   },
   {
     original: "'t Is Geboren Het Goddelijk Kind",
-    gibberish: "Tis Ghuh-boh-run Het Ghod-duh-luk Kint"
+    gibberish: "Tiiiis Ghuuuuh-hoooooh-buuuuh-ruuuuh-nuuuuh Heeeeet Ghoooooh-duuuuh-luuuuh-kuuuuh Kiiiii-nuuuuht"
   },
   {
     original: "Adeste Fideles (O Come All Ye Faithful)",
-    gibberish: "Ah-des-tuh Fee-deh-lus"
+    gibberish: "Aaaah-huuuuh-deeeeeh-stuuuuh Fiiiii-heeee-deeeeeh-luuuuhs"
   }
 ]
 

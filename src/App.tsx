@@ -171,17 +171,27 @@ function App() {
       }
 
       toast.info(`Lied overgeslagen (${newSkipsRemaining} ${newSkipsRemaining === 1 ? 'skip' : 'skips'} over)`, {
-        description: 'Je krijgt een nieuw lied'
+        description: 'Nieuw lied wordt geladen...'
       })
 
       const updatedSongs = current.songs.map(s =>
         s.id === current.currentSong?.id ? { ...s, used: true } : s
       )
 
+      const newSong = getRandomUnusedSong(updatedSongs)
+      
+      if (!newSong) {
+        toast.error('Alle liedjes zijn gebruikt!')
+        return {
+          ...current,
+          phase: 'leaderboard' as const
+        }
+      }
+
       return {
         ...current,
         songs: updatedSongs,
-        currentSong: null,
+        currentSong: newSong,
         skipsRemaining: newSkipsRemaining
       }
     })
