@@ -5,7 +5,6 @@ import { Card } from '@/components/ui/card'
 import { Player } from '@/lib/types'
 import { PlayerSeat } from './PlayerSeat'
 import { UserPlus, ArrowRight } from '@phosphor-icons/react'
-import { motion } from 'framer-motion'
 
 interface SeatingScreenProps {
   players: Player[]
@@ -32,32 +31,24 @@ export function SeatingScreen({ players, onAddPlayer, onComplete }: SeatingScree
   return (
     <div className="min-h-screen p-6 relative">
       <div className="max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
+        <div>
           <h1 className="font-display font-bold text-4xl md:text-5xl text-center mb-2 text-accent drop-shadow-lg">
             Wie speelt mee?
           </h1>
           <p className="text-center text-foreground/70 mb-8">
             Voeg spelers toe door de telefoon rond te geven
           </p>
-        </motion.div>
+        </div>
 
         {players.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="mb-8 space-y-3"
-          >
+          <div className="mb-8 space-y-3">
             {players.map((player) => (
               <PlayerSeat key={player.id} player={player} />
             ))}
-          </motion.div>
+          </div>
         )}
 
-        <Card className="p-6 mb-6 border-2 border-accent/30 bg-card/80 backdrop-blur-md shadow-xl">
+        <Card className="p-6 mb-6 border-2 border-accent/30 bg-card/90 shadow-xl">
           <div className="space-y-4">
             <div>
               <label htmlFor="player-name" className="block text-sm font-semibold mb-2 text-foreground">
@@ -79,7 +70,7 @@ export function SeatingScreen({ players, onAddPlayer, onComplete }: SeatingScree
             <Button
               onClick={handleAddPlayer}
               disabled={!nameInput.trim()}
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-bold uppercase tracking-wide shadow-md hover:shadow-lg transition-all hover:scale-105"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-bold uppercase tracking-wide shadow-md active:scale-95 transition-all"
               size="lg"
             >
               <UserPlus weight="bold" className="mr-2" size={24} />
@@ -89,20 +80,16 @@ export function SeatingScreen({ players, onAddPlayer, onComplete }: SeatingScree
         </Card>
 
         {players.length >= 2 && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+          <div>
             <Button
               onClick={onComplete}
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-6 text-lg font-bold uppercase tracking-wide shadow-lg hover:shadow-xl transition-all hover:scale-105"
+              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-6 text-lg font-bold uppercase tracking-wide shadow-lg active:scale-95 transition-all"
               size="lg"
             >
               Klaar om te spelen
               <ArrowRight weight="bold" className="ml-2" size={24} />
             </Button>
-          </motion.div>
+          </div>
         )}
 
         {players.length === 1 && (

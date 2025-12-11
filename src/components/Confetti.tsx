@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState, useMemo } from 'react'
 
 interface ConfettiProps {
   trigger: boolean
@@ -13,48 +12,43 @@ interface Particle {
 }
 
 export function Confetti({ trigger, onComplete }: ConfettiProps) {
-  const [particles, setParticles] = useState<Particle[]>([])
+  const [isActive, setIsActive] = useState(false)
+
+  const particles = useMemo(() => {
+    const colors = ['#FFD700', '#BF0A30', '#1A4314']
+    return Array.from({ length: 5 }, (_, i) => ({
+      id: i,
+      x: -25 + (i * 12),
+      color: colors[i % colors.length]
+    }))
+  }, [])
 
   useEffect(() => {
     if (trigger) {
-      const colors = ['#FFD700', '#BF0A30', '#1A4314']
-      const newParticles: Particle[] = Array.from({ length: 7 }, (_, i) => ({
-        id: Date.now() + i,
-        x: -30 + (i * 10),
-        color: colors[Math.floor(Math.random() * colors.length)]
-      }))
-      setParticles(newParticles)
-
+      setIsActive(true)
       const timer = setTimeout(() => {
-        setParticles([])
+        setIsActive(false)
         onComplete?.()
-      }, 1500)
+      }, 1000)
 
       return () => clearTimeout(timer)
     }
   }, [trigger, onComplete])
 
+  if (!isActive) return null
+
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">
       {particles.map((particle) => (
-        <motion.div
+        <div
           key={particle.id}
-          className="absolute w-2 h-2 rounded-full"
+          className="absolute w-2 h-2 rounded-full animate-confetti will-change-transform"
           style={{
             backgroundColor: particle.color,
             left: '50%',
-            top: '50%'
-          }}
-          initial={{ x: 0, y: 0, opacity: 1, rotate: 0 }}
-          animate={{
-            x: particle.x,
-            y: 100,
-            opacity: 0,
-            rotate: 360
-          }}
-          transition={{
-            duration: 1.5,
-            ease: 'easeOut'
+            top: '50%',
+            transform: `translate(${particle.x}px, 100px) rotate(360deg)`,
+            opacity: 0
           }}
         />
       ))}

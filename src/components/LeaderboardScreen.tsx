@@ -3,7 +3,6 @@ import { Card } from '@/components/ui/card'
 import { Player } from '@/lib/types'
 import { getLeaderboard } from '@/lib/game-utils'
 import { Crown, Sparkle, ArrowCounterClockwise } from '@phosphor-icons/react'
-import { motion } from 'framer-motion'
 
 interface LeaderboardScreenProps {
   players: Player[]
@@ -17,25 +16,10 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
   return (
     <div className="min-h-screen p-6 relative">
       <div className="max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
-          <motion.div
-            animate={{
-              rotate: [0, 10, -10, 10, 0],
-              scale: [1, 1.1, 1, 1.1, 1]
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatType: 'reverse'
-            }}
-          >
+        <div className="text-center mb-8">
+          <div>
             <Crown className="w-20 h-20 mx-auto text-accent mb-4 drop-shadow-lg" weight="fill" />
-          </motion.div>
+          </div>
           
           <h1 className="font-display font-bold text-4xl md:text-5xl text-accent mb-2 drop-shadow-lg">
             Kerstliedjes Kwats
@@ -44,7 +28,7 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
             Kampioen!
           </h2>
           
-          <Card className="inline-block px-8 py-4 bg-accent/30 border-2 border-accent backdrop-blur-md shadow-xl">
+          <Card className="inline-block px-8 py-4 bg-accent/30 border-2 border-accent shadow-xl">
             <p className="text-2xl font-bold text-accent flex items-center gap-2">
               <Sparkle weight="fill" />
               {winner.name}
@@ -54,77 +38,62 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
               {winner.score} {winner.score === 1 ? 'punt' : 'punten'}
             </p>
           </Card>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="space-y-3 mb-8"
-        >
+        <div className="space-y-3 mb-8">
           {leaderboard.map((player, index) => (
-            <motion.div
+            <Card
               key={player.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
+              className={`p-6 ${
+                index === 0
+                  ? 'bg-accent/30 border-2 border-accent shadow-xl'
+                  : index === 1
+                  ? 'bg-foreground/10 border-2 border-foreground/30 shadow-lg'
+                  : index === 2
+                  ? 'bg-primary/20 border-2 border-primary/50 shadow-lg'
+                  : 'bg-card/90 shadow-md'
+              }`}
             >
-              <Card
-                className={`p-6 backdrop-blur-md ${
-                  index === 0
-                    ? 'bg-accent/30 border-2 border-accent shadow-xl'
-                    : index === 1
-                    ? 'bg-foreground/10 border-2 border-foreground/30 shadow-lg'
-                    : index === 2
-                    ? 'bg-primary/20 border-2 border-primary/50 shadow-lg'
-                    : 'bg-card/70 shadow-md'
-                }`}
-              >
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-md ${
-                      index === 0
-                        ? 'bg-accent text-accent-foreground'
-                        : index === 1
-                        ? 'bg-foreground/30 text-foreground'
-                        : index === 2
-                        ? 'bg-primary/50 text-primary-foreground'
-                        : 'bg-muted text-muted-foreground'
-                    }`}
-                  >
-                    {index + 1}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-xl font-bold">{player.name}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-2xl font-bold text-accent drop-shadow-md">
-                      {player.score}
-                    </p>
-                    <p className="text-sm text-foreground/60">
-                      {player.score === 1 ? 'punt' : 'punten'}
-                    </p>
-                  </div>
+              <div className="flex items-center gap-4">
+                <div
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-md ${
+                    index === 0
+                      ? 'bg-accent text-accent-foreground'
+                      : index === 1
+                      ? 'bg-foreground/30 text-foreground'
+                      : index === 2
+                      ? 'bg-primary/50 text-primary-foreground'
+                      : 'bg-muted text-muted-foreground'
+                  }`}
+                >
+                  {index + 1}
                 </div>
-              </Card>
-            </motion.div>
+                <div className="flex-1">
+                  <p className="text-xl font-bold">{player.name}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-2xl font-bold text-accent drop-shadow-md">
+                    {player.score}
+                  </p>
+                  <p className="text-sm text-foreground/60">
+                    {player.score === 1 ? 'punt' : 'punten'}
+                  </p>
+                </div>
+              </div>
+            </Card>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div>
           <Button
             onClick={onPlayAgain}
-            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-8 text-xl font-bold uppercase tracking-wide shadow-xl hover:shadow-2xl transition-all hover:scale-105"
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-8 text-xl font-bold uppercase tracking-wide shadow-xl active:scale-95 transition-all"
             size="lg"
           >
             <ArrowCounterClockwise weight="bold" className="mr-2" size={28} />
             Nog een keer spelen
           </Button>
-        </motion.div>
+        </div>
       </div>
     </div>
   )

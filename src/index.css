@@ -3,7 +3,12 @@
 
 @layer base {
   * {
-    @apply border-border
+    @apply border-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    touch-action: manipulation;
   }
 }
 
@@ -68,47 +73,47 @@
 
 body {
   font-family: var(--font-lato);
+  overscroll-behavior: none;
 }
 
 .font-display {
   font-family: var(--font-playfair);
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1) rotate(180deg); }
-}
-
-@keyframes confetti-fall {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
-}
-
 @keyframes snow-fall {
   0% { 
-    transform: translateY(-10px) translateX(0); 
+    transform: translate3d(0, -10px, 0); 
     opacity: 0; 
   }
   10% { 
-    opacity: 0.6; 
+    opacity: 0.5; 
   }
   90% { 
-    opacity: 0.6; 
+    opacity: 0.5; 
   }
   100% { 
-    transform: translateY(100vh) translateX(50px); 
+    transform: translate3d(30px, 100vh, 0); 
     opacity: 0; 
   }
 }
 
-.animate-sparkle {
-  animation: sparkle 1s ease-in-out;
-}
-
-.animate-confetti {
-  animation: confetti-fall 1.5s ease-out forwards;
+@keyframes confetti-fall {
+  0% { 
+    transform: translate3d(0, 0, 0) rotate(0deg); 
+    opacity: 1; 
+  }
+  100% { 
+    transform: translate3d(var(--x, 0), 80px, 0) rotate(360deg); 
+    opacity: 0; 
+  }
 }
 
 .animate-snow {
   animation: snow-fall linear infinite;
+  will-change: transform, opacity;
+}
+
+.animate-confetti {
+  animation: confetti-fall 1s ease-out forwards;
+  will-change: transform, opacity;
 }
