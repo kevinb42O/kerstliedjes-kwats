@@ -21,11 +21,8 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
             <Crown className="w-20 h-20 mx-auto text-accent mb-4 drop-shadow-lg" weight="fill" />
           </div>
           
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-accent mb-2 drop-shadow-lg">
-            Kerstliedjes Kwats
-          </h1>
           <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4 drop-shadow-md">
-            Kampioen!
+            🏆 De Kampioen! 🏆
           </h2>
           
           <Card className="inline-block px-8 py-4 bg-accent/30 border-2 border-accent shadow-xl">

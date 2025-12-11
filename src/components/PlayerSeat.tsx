@@ -13,36 +13,52 @@ interface PlayerSeatProps {
 export function PlayerSeat({ player, isActive, isLeader, className = '' }: PlayerSeatProps) {
   return (
     <Card
-      className={`p-4 transition-all duration-200 ${
+      className={`p-3 md:p-4 transition-all duration-300 ${
         isActive
-          ? 'border-accent shadow-lg shadow-accent/30 bg-accent/20 scale-105'
+          ? 'border-yellow-400 border-4 shadow-lg shadow-yellow-400/50 bg-yellow-400/20 scale-105 ring-4 ring-yellow-400/30'
           : 'border-border bg-card/90'
       } ${className}`}
     >
-      <div className="flex items-center gap-3">
-        <div
-          className={`w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-md ${
-            isActive 
-              ? 'bg-accent text-accent-foreground shadow-accent/40' 
-              : 'bg-muted/80 text-muted-foreground'
-          }`}
-        >
-          {isLeader && !isActive ? (
-            <Crown weight="fill" size={24} />
-          ) : (
-            <User weight="fill" size={24} />
-          )}
+      <div className="flex items-center gap-4">
+        <div className="relative flex-shrink-0">
+          {/* Kerstmuts boven cirkel */}
+          <div 
+            className="absolute -top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl z-10"
+            style={{ 
+              filter: `drop-shadow(0 2px 4px rgba(0,0,0,0.3))`,
+              color: player.color || '#ef4444'
+            }}
+          >
+            🎅
+          </div>
+          {/* Gekleurde cirkel */}
+          <div
+            className={`w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all shadow-md border-2 ${
+              isActive 
+                ? 'border-yellow-400 ring-2 ring-yellow-400/50 scale-110' 
+                : 'border-white/50'
+            }`}
+            style={{
+              backgroundColor: player.color || '#ef4444'
+            }}
+          >
+            {isLeader && (
+              <Crown weight="fill" size={24} className="text-yellow-300" />
+            )}
+          </div>
         </div>
         <div className="flex-1 min-w-0">
-          <p className="font-semibold text-lg truncate">{player.name}</p>
-          <div className="flex items-center gap-2 mt-1">
-            <Badge 
-              variant={isLeader ? 'default' : 'secondary'} 
-              className={isLeader ? 'bg-accent text-accent-foreground shadow-md' : 'bg-muted/80'}
-            >
-              {player.score} {player.score === 1 ? 'punt' : 'punten'}
-            </Badge>
-          </div>
+          <p className="font-bold text-base md:text-lg truncate">{player.name}</p>
+          <Badge 
+            variant="secondary"
+            className="mt-1 text-sm md:text-base px-2 py-1"
+            style={{
+              backgroundColor: isLeader ? player.color : undefined,
+              color: isLeader ? 'white' : undefined
+            }}
+          >
+            {player.score} {player.score === 1 ? 'pt' : 'pts'}
+          </Badge>
         </div>
       </div>
     </Card>

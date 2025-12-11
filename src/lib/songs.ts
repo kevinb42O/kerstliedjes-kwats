@@ -1,197 +1,214 @@
 import { Song } from './types'
 
 export const CHRISTMAS_SONGS: Omit<Song, 'id' | 'used'>[] = [
+  // Categorie 1: De Klassieke Meezingers (NL)
+  {
+    original: "Stille Nacht, Heilige Nacht",
+    gibberish: "Still hun aacht, haai lieg hun aacht"
+  },
+  {
+    original: "O Denneboom",
+    gibberish: "Ode hunne bown"
+  },
+  {
+    original: "Kling klokje klingelingeling",
+    gibberish: "Klink lochk juh, klinge ling uh link"
+  },
+  {
+    original: "Midden in de winternacht",
+    gibberish: "Mid dunin, duh win turn aagt"
+  },
+  {
+    original: "De herdertjes lagen bij nachte",
+    gibberish: "Duh herr durr, tjeslaa gun bye nag tuh"
+  },
+  {
+    original: "Er is een kindeke",
+    gibberish: "Eh riezz un, kin duh kuh"
+  },
+  {
+    original: "Gloria in excelsis Deo",
+    gibberish: "Gloor riek ja, in nek sell zies day jo"
+  },
+  {
+    original: "Nu zijt wellekome",
+    gibberish: "Nuh zijd, well uk oo muhl"
+  },
+  {
+    original: "Komt allen tezamen",
+    gibberish: "Komm talleh, ntee zaa muhl"
+  },
+  {
+    original: "Klein klein Jezuke",
+    gibberish: "Klaai nkl ayn, jay zuu kuh"
+  },
+  
+  // Categorie 2: Vlaamse Hits & Cultuur
+  {
+    original: "Een bakske vol met stro",
+    gibberish: "Umba kskuh, vollm ets trow"
+  },
+  {
+    original: "Samson en Gert",
+    gibberish: "Samm sonn, eng herr t"
+  },
+  {
+    original: "Kerstmis, Kerstmis",
+    gibberish: "Kerst miss, kerst miss"
+  },
+  {
+    original: "Kindje Jezus",
+    gibberish: "Kinn djee, jey zuus"
+  },
+  {
+    original: "Susa Nina",
+    gibberish: "Suu zann ie nah"
+  },
+  {
+    original: "De Drie Koningen",
+    gibberish: "Duh driek, oon in gun"
+  },
+  {
+    original: "Nieuwjaarsbrief",
+    gibberish: "Niew ya rz brieve"
+  },
+  {
+    original: "Zalig kerstfeest",
+    gibberish: "Sah lig kers tveys t"
+  },
+  {
+    original: "Gelukkig nieuwjaar",
+    gibberish: "Huh luck ig, knew yar"
+  },
+  {
+    original: "Kerstmarkt",
+    gibberish: "Care st marq t"
+  },
+  
+  // Categorie 3: Eten & Drinken
+  {
+    original: "Aardappelkroketten",
+    gibberish: "Aar dap pull, cro keh tun"
+  },
+  {
+    original: "Tomaat garnaal",
+    gibberish: "Toe maat, gar nahl"
+  },
+  {
+    original: "Kerststronk",
+    gibberish: "Care sts tronk"
+  },
+  {
+    original: "Kalkoen met champignonsaus",
+    gibberish: "Call coon, met cham pi non saus"
+  },
+  {
+    original: "Kaasfondue",
+    gibberish: "Kazz von dew"
+  },
+  {
+    original: "Gourmetpannetjes",
+    gibberish: "Goer meh, pahn net yuhs"
+  },
+  {
+    original: "Champagne",
+    gibberish: "Sjam pah nuh"
+  },
+  {
+    original: "Glühwein",
+    gibberish: "Gleuw eye n"
+  },
+  {
+    original: "Chocolademousse",
+    gibberish: "Show co lah, duh mouss"
+  },
+  {
+    original: "Ijstaart",
+    gibberish: "Ice staar t"
+  },
+  
+  // Categorie 4: Internationale Hits
   {
     original: "Jingle Bells",
-    gibberish: "Djiiiiiiing-gguuuullll Beeeeeeellllsss"
+    gibberish: "Djin kuhlb els"
   },
   {
-    original: "Stille Nacht",
-    gibberish: "Stiiiiiillluuuhhh Naaaachhhhht"
+    original: "We wish you a merry Christmas",
+    gibberish: "Wie wies joe, uh mer rie kris mus"
   },
   {
-    original: "O Dennenboom",
-    gibberish: "Oooohhh Deeeehhhn-nneeehhhn-booooohhhhm"
+    original: "All I want for Christmas",
+    gibberish: "Oll aai wond, fork ris mis"
   },
   {
     original: "Last Christmas",
-    gibberish: "Laaaaaahhhhst Krrriiiiisss-muuuhhhsss"
-  },
-  {
-    original: "All I Want for Christmas Is You",
-    gibberish: "Ooollll Aaaaiii Woooonnn Fooorrrr Krrriiiiisss-muuuhhhsss Iiisss Jjjjjoooohhh"
+    gibberish: "Las tkris mis"
   },
   {
     original: "White Christmas",
-    gibberish: "Waaaaiiiitttt Krrriiiiisss-muuuhhhsss"
+    gibberish: "Waa iet kris mus"
   },
   {
     original: "Feliz Navidad",
-    gibberish: "Feeee-liiiissss Naaaa-viiiii-daaaaadddd"
+    gibberish: "Fay lies, nah wie dat"
   },
   {
-    original: "Santa Claus Is Coming to Town",
-    gibberish: "Saaaannnn-taaahh Klllaaaaauuusss Iiisss Kooouuummm-iiiingg Tooo Taaaauuuwwnnn"
+    original: "Driving home for Christmas",
+    gibberish: "Dray vin, hoo m fork ris mis"
   },
   {
-    original: "Driving Home for Christmas",
-    gibberish: "Drrraaaaiii-viiiingg Hoooohhhhmmm Fooorrrr Krrriiiiisss-muuuhhhsss"
+    original: "Let it snow, let it snow",
+    gibberish: "Le ttits no, le ttits no"
   },
   {
-    original: "Rockin' Around the Christmas Tree",
-    gibberish: "Rrroooo-kiiiinnn Aaa-rrraaaauuuunnnddd Deee Krrriiiiisss-muuuhhhsss Trrrriiiiii"
+    original: "Santa Claus is coming",
+    gibberish: "Zen tak loz, is kom ink"
   },
   {
-    original: "Let It Snow",
-    gibberish: "Leeeettt Iiittt Sssnnnoooohhhhwww"
+    original: "Merry Christmas everyone",
+    gibberish: "Mer riek ris mus, eff riew on"
+  },
+  
+  // Categorie 5: Woorden & Doordenkers
+  {
+    original: "Piek op de boom",
+    gibberish: "Pie koppe boon"
   },
   {
-    original: "Rudolph the Red-Nosed Reindeer",
-    gibberish: "Rrruuuu-dooolllff Deee Rrreeeeddd-Noooosssdd Rrraaaiiiinnn-diiiirrrr"
+    original: "Sneeuwvlokken",
+    gibberish: "Snay uwv lokk un"
   },
   {
-    original: "Winter Wonderland",
-    gibberish: "Wiiinnnn-tuurrrr Wooonnnn-ddeeerrrr-lllaaannndd"
+    original: "Home Alone",
+    gibberish: "Hoe mel own"
   },
   {
-    original: "Do They Know It's Christmas",
-    gibberish: "Dooo Deeeiii Nooohhh Iiittsss Krrriiiiisss-muuuhhhsss"
+    original: "Kerstballen",
+    gibberish: "Kers tbal lun"
   },
   {
-    original: "Frosty the Snowman",
-    gibberish: "Frrrooosss-tiii Deee Sssnnnooohh-muuuuhhhnn"
+    original: "Stalletje",
+    gibberish: "Stall ut yuh"
   },
   {
-    original: "The Little Drummer Boy",
-    gibberish: "Deee Liiiii-ttuuullll Drrrooommm-mmeeerrrr Boooiii"
+    original: "Onder de kerstboom",
+    gibberish: "Onn durt, care sts boon"
   },
   {
-    original: "Santa Baby",
-    gibberish: "Saaaannnn-taaahh Baaaiii-biii"
+    original: "Pakjesavond",
+    gibberish: "Pak yus, ah vunt"
   },
   {
-    original: "It's the Most Wonderful Time of the Year",
-    gibberish: "Iiittsss Deee Mooohhsssttt Wooonnnn-ddeeerrr-fuuullll Taaaiiimmm Offfff Deee Jjjiiiirrrr"
+    original: "Middernachtmis",
+    gibberish: "Mid dur, nagt miss"
   },
   {
-    original: "Fairytale of New York",
-    gibberish: "Feeee-rrriii-teeelll Offfff Njjjooo Jjjooorrrkk"
+    original: "Cadeautjes",
+    gibberish: "Cah doat yes"
   },
   {
-    original: "Happy Xmas (War Is Over)",
-    gibberish: "Haaaaa-piii Eeexxxxx-muuusss Wooorrr Iiisss Ooo-vveeerrr"
-  },
-  {
-    original: "Deck the Halls",
-    gibberish: "Deeekkkk Deee Hooolllsss"
-  },
-  {
-    original: "We Wish You a Merry Christmas",
-    gibberish: "Wiii Wiiiissshh Jjjoooo Aaa Meeee-rrriii Krrriiiiisss-muuuhhhsss"
-  },
-  {
-    original: "Silent Night",
-    gibberish: "Saaaiii-luuuhnnntt Naaaiiitttt"
-  },
-  {
-    original: "O Holy Night",
-    gibberish: "Oooohhh Hoooo-liii Naaaiiitttt"
-  },
-  {
-    original: "O Come All Ye Faithful",
-    gibberish: "Oooohhh Kooommm Ooollll Jjjiii Feeee-tuuulll"
-  },
-  {
-    original: "Hark! The Herald Angels Sing",
-    gibberish: "Haaaarrrkkk Deee Heee-rruuulllddd Eeeinnnn-jjjuuullsss Siiingg"
-  },
-  {
-    original: "Joy to the World",
-    gibberish: "Djjjooooiii Tooo Deee Wooorrrllldd"
-  },
-  {
-    original: "The First Noel",
-    gibberish: "Deee Fuuurrrsssttt Nooo-weeelll"
-  },
-  {
-    original: "Away in a Manger",
-    gibberish: "Aaa-weeiii Iiinnn Aaa Maaannnn-jjjeeerrr"
-  },
-  {
-    original: "Silver Bells",
-    gibberish: "Siiillll-vvveeerrr Beeeeellllsss"
-  },
-  {
-    original: "Have Yourself a Merry Little Christmas",
-    gibberish: "Haaavvv Jjjooo-seeelllff Aaa Meeee-rrriii Liiiii-ttuuullll Krrriiiiisss-muuuhhhsss"
-  },
-  {
-    original: "Mistletoe and Wine",
-    gibberish: "Miiisss-tuuullll-tooohh Eeennndd Waaaiiinnn"
-  },
-  {
-    original: "De Herdertjes Lagen Bij Nachte",
-    gibberish: "Duuuhhh Heeeerrr-ddeeerrr-tttjjjuuusss Laaaa-gguuuhhhn Baaaiii Naaachhh-tuuuhhh"
-  },
-  {
-    original: "Komt Allen Tezamen",
-    gibberish: "Kooommmtt Aaal-luuuhhhn Tuuuhhh-zaaahhh-muuuhhhn"
-  },
-  {
-    original: "Er Is Een Kindeke Geboren",
-    gibberish: "Eeerrrr Iiisss Uuuhhhn Kiiiinnnn-duuuhhh-kuuuhhh Gguuuhhh-booo-rruuuhhhn"
-  },
-  {
-    original: "O Kom Er Eens Kijken",
-    gibberish: "Oooohhh Kooommmm Eeerrrr Uuuhhhnnsss Kaaaiii-kuuuhhhn"
-  },
-  {
-    original: "Kling Klokje",
-    gibberish: "Kllliiiingg Kllloookk-jjjuuuhhh"
-  },
-  {
-    original: "'t Is Geboren Het Goddelijk Kind",
-    gibberish: "Tttiiiisss Gguuuhhh-booo-rruuuhhhn Heeettt Gggooooddd-duuuhhh-luuukkk Kiiinnnddd"
-  },
-  {
-    original: "Mary's Boy Child",
-    gibberish: "Meee-rrriiisss Boooiii Tttshhhaaaiiillldd"
-  },
-  {
-    original: "Little Saint Nick",
-    gibberish: "Liiiii-ttuuullll Seeeinnttt Niiikkk"
-  },
-  {
-    original: "Sleigh Ride",
-    gibberish: "Sllleeeiii Rrraaaiiidddd"
-  },
-  {
-    original: "Blue Christmas",
-    gibberish: "Blllooo Krrriiiiisss-muuuhhhsss"
-  },
-  {
-    original: "The Christmas Song",
-    gibberish: "Deee Krrriiiiisss-muuuhhhsss Sooongg"
-  },
-  {
-    original: "I'll Be Home for Christmas",
-    gibberish: "Aaaiiillll Biii Hoooohhhhmmm Fooorrrr Krrriiiiisss-muuuhhhsss"
-  },
-  {
-    original: "I Saw Mommy Kissing Santa Claus",
-    gibberish: "Aaaiii Sooohh Mooo-miii Kiiii-siiiingg Saaaannnn-taaahh Klllaaaaauuusss"
-  },
-  {
-    original: "Step Into Christmas",
-    gibberish: "Steeepppp Iiinnnn-tooo Krrriiiiisss-muuuhhhsss"
-  },
-  {
-    original: "Wonderful Christmastime",
-    gibberish: "Wooonnnn-ddeeerrr-fuuullll Krrriiiiisss-muuuhhhsss-taaaiiimmm"
-  },
-  {
-    original: "Holly Jolly Christmas",
-    gibberish: "Hoooo-liii Djjjooo-liii Krrriiiiisss-muuuhhhsss"
+    original: "Kerstman",
+    gibberish: "Care st mahn"
   }
 ]
 

@@ -16,7 +16,7 @@ export function SeatingScreen({ players, onAddPlayer, onComplete }: SeatingScree
   const [nameInput, setNameInput] = useState('')
 
   const handleAddPlayer = () => {
-    if (nameInput.trim()) {
+    if (nameInput.trim() && players.length < 15) {
       onAddPlayer(nameInput.trim())
       setNameInput('')
     }
@@ -69,12 +69,12 @@ export function SeatingScreen({ players, onAddPlayer, onComplete }: SeatingScree
             
             <Button
               onClick={handleAddPlayer}
-              disabled={!nameInput.trim()}
+              disabled={!nameInput.trim() || players.length >= 15}
               className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg font-bold uppercase tracking-wide shadow-md active:scale-95 transition-all"
               size="lg"
             >
               <UserPlus weight="bold" className="mr-2" size={24} />
-              Bevestig mijn plek
+              {players.length >= 15 ? 'Maximaal aantal spelers bereikt' : 'Bevestig mijn plek'}
             </Button>
           </div>
         </Card>
@@ -95,6 +95,11 @@ export function SeatingScreen({ players, onAddPlayer, onComplete }: SeatingScree
         {players.length === 1 && (
           <p className="text-center text-foreground/60 text-sm mt-4">
             Voeg minstens nog één speler toe om te beginnen
+          </p>
+        )}
+        {players.length >= 15 && (
+          <p className="text-center text-accent font-bold text-sm mt-4">
+            🎅 Maximaal aantal spelers (15) bereikt!
           </p>
         )}
       </div>

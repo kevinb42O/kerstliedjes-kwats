@@ -41,11 +41,13 @@ function App() {
     setGameState((current) => {
       if (!current) return current!
       const uniqueName = ensureUniqueName(name, current.players)
+      const colors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6', '#ec4899', '#14b8a6', '#f59e0b', '#06b6d4', '#10b981', '#6366f1', '#d946ef', '#84cc16', '#f43f5e']
       const newPlayer: Player = {
         id: generatePlayerId(),
         name: uniqueName,
         score: 0,
-        skipsRemaining: 3
+        skipsRemaining: 3,
+        color: colors[current.players.length % colors.length]
       }
       
       toast.success(`${uniqueName} heeft plaatsgenomen!`, {

@@ -3,6 +3,7 @@ export interface Player {
   name: string
   score: number
   skipsRemaining: number
+  color?: string
 }
 
 export interface Song {
