@@ -15,7 +15,7 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
   const winner = leaderboard[0]
 
   return (
-    <div className="min-h-screen p-6 bg-gradient-to-br from-secondary via-secondary/95 to-primary/80">
+    <div className="min-h-screen p-6 relative">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -34,23 +34,23 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
               repeatType: 'reverse'
             }}
           >
-            <Crown className="w-20 h-20 mx-auto text-accent mb-4" weight="fill" />
+            <Crown className="w-20 h-20 mx-auto text-accent mb-4 drop-shadow-lg" weight="fill" />
           </motion.div>
           
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-accent mb-2">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-accent mb-2 drop-shadow-lg">
             Kerstliedjes Kwats
           </h1>
-          <h2 className="font-display font-bold text-3xl md:text-4xl text-secondary-foreground mb-4">
+          <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4 drop-shadow-md">
             Kampioen!
           </h2>
           
-          <Card className="inline-block px-8 py-4 bg-accent/20 border-2 border-accent backdrop-blur-sm">
+          <Card className="inline-block px-8 py-4 bg-accent/30 border-2 border-accent backdrop-blur-md shadow-xl">
             <p className="text-2xl font-bold text-accent flex items-center gap-2">
               <Sparkle weight="fill" />
               {winner.name}
               <Sparkle weight="fill" />
             </p>
-            <p className="text-lg text-secondary-foreground mt-1">
+            <p className="text-lg text-foreground mt-1">
               {winner.score} {winner.score === 1 ? 'punt' : 'punten'}
             </p>
           </Card>
@@ -70,25 +70,25 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
               transition={{ delay: 0.4 + index * 0.1 }}
             >
               <Card
-                className={`p-6 ${
+                className={`p-6 backdrop-blur-md ${
                   index === 0
-                    ? 'bg-gradient-to-r from-accent/20 to-accent/10 border-2 border-accent'
+                    ? 'bg-accent/30 border-2 border-accent shadow-xl'
                     : index === 1
-                    ? 'bg-muted/50 border-2 border-muted-foreground/20'
+                    ? 'bg-foreground/10 border-2 border-foreground/30 shadow-lg'
                     : index === 2
-                    ? 'bg-primary/10 border-2 border-primary/30'
-                    : 'bg-card'
+                    ? 'bg-primary/20 border-2 border-primary/50 shadow-lg'
+                    : 'bg-card/70 shadow-md'
                 }`}
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl ${
+                    className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl shadow-md ${
                       index === 0
                         ? 'bg-accent text-accent-foreground'
                         : index === 1
-                        ? 'bg-muted-foreground/30 text-foreground'
+                        ? 'bg-foreground/30 text-foreground'
                         : index === 2
-                        ? 'bg-primary/30 text-foreground'
+                        ? 'bg-primary/50 text-primary-foreground'
                         : 'bg-muted text-muted-foreground'
                     }`}
                   >
@@ -98,10 +98,10 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
                     <p className="text-xl font-bold">{player.name}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-2xl font-bold text-accent">
+                    <p className="text-2xl font-bold text-accent drop-shadow-md">
                       {player.score}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm text-foreground/60">
                       {player.score === 1 ? 'punt' : 'punten'}
                     </p>
                   </div>
@@ -118,7 +118,7 @@ export function LeaderboardScreen({ players, onPlayAgain }: LeaderboardScreenPro
         >
           <Button
             onClick={onPlayAgain}
-            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-8 text-xl font-bold uppercase tracking-wide shadow-xl"
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-8 text-xl font-bold uppercase tracking-wide shadow-xl hover:shadow-2xl transition-all hover:scale-105"
             size="lg"
           >
             <ArrowCounterClockwise weight="bold" className="mr-2" size={28} />

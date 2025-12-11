@@ -58,21 +58,22 @@ A digital Christmas Eve table game where players pass a phone around, decode hea
 
 ## Design Direction
 
-The design should evoke the warmth of a candlelit Christmas dinner party - rich, inviting colors with subtle sparkle, elegant typography that feels both festive and refined, and animations that delight without overwhelming. It should feel like unwrapping a beautifully wrapped gift: sophisticated presentation revealing playful content.
+The design should evoke the warmth and magic of a candlelit Christmas gathering - deep, rich colors with sparkles and golden accents, elegant typography that feels both festive and refined, and animations that delight without overwhelming. Dark background with glowing elements creates an intimate, cozy Christmas night atmosphere reminiscent of sitting around a decorated tree with candles.
 
 ## Color Selection
 
-A rich, warm palette inspired by traditional Christmas gatherings with deep jewel tones and metallic accents.
+A rich, dramatic palette inspired by Christmas night gatherings with deep jewel tones and warm metallic accents against a dark winter evening backdrop.
 
-- **Primary Color**: Deep Forest Green (oklch(0.35 0.08 155)) - Evokes Christmas trees and creates a grounded, sophisticated foundation that feels both festive and elegant
-- **Secondary Colors**: Rich Cranberry Red (oklch(0.45 0.18 15)) for accents and buttons, creating warmth and festive energy without overwhelming
-- **Accent Color**: Warm Gold (oklch(0.78 0.12 85)) - Used for highlights, selected states, and magical sparkle effects that add celebration and luxury
-- **Supporting Colors**: Creamy Beige (oklch(0.95 0.01 75)) for backgrounds, Soft Silver (oklch(0.75 0.01 265)) for subtle UI elements
+- **Background**: Deep Forest Green (oklch(0.15 0.04 160)) - Creates an intimate, cozy Christmas night atmosphere
+- **Primary Color**: Rich Cranberry Red (oklch(0.45 0.15 20)) - Evokes warmth, tradition, and festive celebration
+- **Secondary Color**: Deep Evergreen (oklch(0.28 0.06 155)) - Reinforces the Christmas tree and winter forest theme
+- **Accent Color**: Warm Gold (oklch(0.75 0.15 85)) - Used for highlights, sparkles, and magical festive elements that pop against the dark background
+- **Card Backgrounds**: Slightly lighter forest green (oklch(0.22 0.05 160)) with transparency for depth
 - **Foreground/Background Pairings**: 
-  - Forest Green Background (oklch(0.35 0.08 155)): Cream text (oklch(0.95 0.01 75)) - Ratio 8.2:1 ✓
-  - Cranberry Buttons (oklch(0.45 0.18 15)): White text (oklch(1 0 0)) - Ratio 5.1:1 ✓
-  - Cream Background (oklch(0.95 0.01 75)): Forest Green text (oklch(0.35 0.08 155)) - Ratio 8.2:1 ✓
-  - Gold Accent (oklch(0.78 0.12 85)): Forest Green text (oklch(0.35 0.08 155)) - Ratio 3.8:1 ✓
+  - Deep Background (oklch(0.15 0.04 160)): Cream/white text (oklch(0.98 0.01 85)) - Ratio 12.5:1 ✓
+  - Cranberry Buttons (oklch(0.45 0.15 20)): White text (oklch(1 0 0)) - Ratio 6.1:1 ✓
+  - Card Background (oklch(0.22 0.05 160)): Cream text (oklch(0.98 0.01 85)) - Ratio 10.2:1 ✓
+  - Gold Accent (oklch(0.75 0.15 85)): Dark background text (oklch(0.15 0.04 160)) - Ratio 8.4:1 ✓
 
 ## Font Selection
 

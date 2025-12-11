@@ -11,17 +11,17 @@ interface ConfirmScreenProps {
 
 export function ConfirmScreen({ players, onStart }: ConfirmScreenProps) {
   return (
-    <div className="min-h-screen p-6 bg-gradient-to-br from-background to-muted">
+    <div className="min-h-screen p-6 relative">
       <div className="max-w-2xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-center mb-2 text-secondary">
+          <h1 className="font-display font-bold text-4xl md:text-5xl text-center mb-2 text-accent drop-shadow-lg">
             Iedereen aan tafel!
           </h1>
-          <p className="text-center text-muted-foreground mb-8">
+          <p className="text-center text-foreground/70 mb-8">
             Bevestig om de Kerst Kwats te beginnen
           </p>
         </motion.div>
@@ -51,7 +51,7 @@ export function ConfirmScreen({ players, onStart }: ConfirmScreenProps) {
         >
           <Button
             onClick={onStart}
-            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-8 text-xl font-bold uppercase tracking-wide shadow-xl"
+            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-8 text-xl font-bold uppercase tracking-wide shadow-xl hover:shadow-2xl transition-all hover:scale-105"
             size="lg"
           >
             <Play weight="fill" className="mr-2" size={28} />
