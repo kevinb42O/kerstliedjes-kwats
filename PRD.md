@@ -27,11 +27,11 @@ A digital Christmas Eve table game where players pass a phone around, decode hea
 - Success criteria: Selection is truly random (except when guesser gets next turn), animation is smooth and engaging, selected player is unmistakably clear
 
 **Gibberish Song Display**
-- Functionality: Shows phonetically disguised Christmas song titles for the reader to pronounce aloud
-- Purpose: Creates the core gameplay challenge and generates laughter through mispronunciation
+- Functionality: Shows phonetically disguised Christmas song titles for the reader to pronounce aloud, with ability to skip up to 3 times per turn
+- Purpose: Creates the core gameplay challenge and generates laughter through mispronunciation, while allowing flexibility for particularly difficult songs
 - Trigger: Reader taps "Reveal Song" button
-- Progression: Player selected → Tap to reveal → Large, prominent gibberish text displayed → Reader reads aloud → Group guesses
-- Success criteria: Text is large and easily readable, gibberish is challenging but decipherable when spoken, contains 15+ songs for variety
+- Progression: Player selected → Tap to reveal → Large, prominent gibberish text displayed → Reader reads aloud → Group guesses → If stuck, reader can skip to new song (max 3 times) → After 3 skips, turn automatically passes to next player
+- Success criteria: Text is large and easily readable, gibberish is challenging but decipherable when spoken, contains 40 well-known Christmas songs only (no obscure or fake songs), skip counter clearly visible
 
 **Scoring and Turn Progression**
 - Functionality: Awards points to correct guessers and automatically assigns them the next turn
@@ -52,7 +52,9 @@ A digital Christmas Eve table game where players pass a phone around, decode hea
 - **Single Player Entry**: If only one player joins, display a friendly message requiring at least 2 players before starting
 - **Duplicate Names**: Append a number suffix (e.g., "Jan (2)") if same name is entered to avoid confusion
 - **Song Exhaustion**: If all songs are used before manual end, automatically trigger leaderboard with "All songs completed!" message
-- **Accidental Answer Reveal**: No answer reveal button for reader - they must know the real song; include a "Skip Song" option for truly impossible gibberish
+- **Accidental Answer Reveal**: No answer reveal button for reader - they must know the real song; includes a "New Song" button that allows up to 3 skips per turn before losing the turn to next player
+- **Skip Counter**: After using 3 skips, the turn automatically passes to a random next player and skip counter resets to 3
+- **Song Quality**: Only well-known, real Christmas songs are included - no obscure carols or made-up songs that players won't recognize
 - **Mid-Game Exit**: Show confirmation dialog if user tries to leave during active game to prevent accidental exits
 - **Long Names**: Truncate names longer than 15 characters with ellipsis to maintain layout integrity
 

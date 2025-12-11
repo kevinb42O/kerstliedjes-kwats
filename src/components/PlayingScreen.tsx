@@ -19,6 +19,7 @@ interface PlayingScreenProps {
   players: Player[]
   currentPlayerIndex: number
   currentSong: Song | null
+  skipsRemaining: number
   onRevealSong: () => void
   onCorrectGuess: (playerId: string) => void
   onSkipSong: () => void
@@ -29,6 +30,7 @@ export function PlayingScreen({
   players,
   currentPlayerIndex,
   currentSong,
+  skipsRemaining,
   onRevealSong,
   onCorrectGuess,
   onSkipSong,
@@ -187,7 +189,7 @@ export function PlayingScreen({
                     size="lg"
                   >
                     <SkipForward className="mr-2" size={20} />
-                    Sla dit lied over
+                    Nieuw lied ({skipsRemaining}/3 skips over)
                   </Button>
                 </div>
               ) : (

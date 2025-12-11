@@ -19,7 +19,8 @@ function App() {
     currentPlayerIndex: -1,
     currentSong: null,
     songs: createSongsList(),
-    roundNumber: 0
+    roundNumber: 0,
+    skipsRemaining: 3
   })
 
   const handleStartSeating = () => {
@@ -76,7 +77,8 @@ function App() {
         ...current,
         phase: 'playing' as const,
         currentPlayerIndex: firstPlayerIndex,
-        roundNumber: 1
+        roundNumber: 1,
+        skipsRemaining: 3
       }
     })
   }
@@ -136,7 +138,8 @@ function App() {
         songs: updatedSongs,
         currentPlayerIndex: guesserIndex,
         currentSong: null,
-        roundNumber: current.roundNumber + 1
+        roundNumber: current.roundNumber + 1,
+        skipsRemaining: 3
       }
     })
   }
@@ -144,21 +147,42 @@ function App() {
   const handleSkipSong = () => {
     setGameState((current) => {
       if (!current) return current!
+      
+      const newSkipsRemaining = current.skipsRemaining - 1
+      
+      if (newSkipsRemaining < 0) {
+        const nextPlayerIndex = getRandomPlayerIndex(current.players, current.currentPlayerIndex)
+        
+        toast.warning('Geen skips meer over!', {
+          description: 'Je verliest je beurt. Volgende speler is aan de beurt.'
+        })
+
+        const updatedSongs = current.songs.map(s =>
+          s.id === current.currentSong?.id ? { ...s, used: true } : s
+        )
+
+        return {
+          ...current,
+          songs: updatedSongs,
+          currentPlayerIndex: nextPlayerIndex,
+          currentSong: null,
+          skipsRemaining: 3
+        }
+      }
+
+      toast.info(`Lied overgeslagen (${newSkipsRemaining} ${newSkipsRemaining === 1 ? 'skip' : 'skips'} over)`, {
+        description: 'Je krijgt een nieuw lied'
+      })
+
       const updatedSongs = current.songs.map(s =>
         s.id === current.currentSong?.id ? { ...s, used: true } : s
       )
 
-      const nextPlayerIndex = getRandomPlayerIndex(current.players, current.currentPlayerIndex)
-
-      toast.info('Lied overgeslagen', {
-        description: 'Volgende speler krijgt een nieuwe beurt'
-      })
-
       return {
         ...current,
         songs: updatedSongs,
-        currentPlayerIndex: nextPlayerIndex,
-        currentSong: null
+        currentSong: null,
+        skipsRemaining: newSkipsRemaining
       }
     })
   }
@@ -180,7 +204,8 @@ function App() {
       currentPlayerIndex: -1,
       currentSong: null,
       songs: createSongsList(),
-      roundNumber: 0
+      roundNumber: 0,
+      skipsRemaining: 3
     })
   }
 
@@ -216,6 +241,7 @@ function App() {
           players={gameState.players}
           currentPlayerIndex={gameState.currentPlayerIndex}
           currentSong={gameState.currentSong}
+          skipsRemaining={gameState.skipsRemaining}
           onRevealSong={handleRevealSong}
           onCorrectGuess={handleCorrectGuess}
           onSkipSong={handleSkipSong}

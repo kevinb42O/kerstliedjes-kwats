@@ -20,4 +20,5 @@ export interface GameState {
   currentSong: Song | null
   songs: Song[]
   roundNumber: number
+  skipsRemaining: number
 }
