@@ -3,7 +3,7 @@
   "name": "Kerstliedjes Kwats",
   "short_name": "Kwats",
   "description": "A festive Christmas song guessing game for family and friends",
-  "start_url": ".",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#1e5631",
