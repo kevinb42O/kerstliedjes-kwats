@@ -71,16 +71,12 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           <span style={{ color: 'oklch(0.75 0.15 85)' }}>Yar!</span>
         </h1>
         
-        <h2 className="font-display text-2xl md:text-3xl text-accent/80 mb-4 italic">
+        <h2 className="font-display text-2xl md:text-3xl text-foreground/90 mb-3 leading-tight">
           Het Dronken gebrabbel raadspel
         </h2>
         
-        <p className="text-xl md:text-2xl text-foreground/90 mb-8 leading-relaxed">
-          Raad het woord aan de hand van <span className="font-bold text-accent">de dronken uitspraak...</span>
-        </p>
-        
-        <p className="text-lg text-foreground/70 mb-8 italic">
-          Veel plezier en een fijn eindejaar voor iedereen.
+        <p className="text-lg md:text-xl text-foreground/80 mb-8 leading-relaxed">
+          Raad het woord aan de hand van de dronken uitspraak...
         </p>
         
         <div className="bg-card/90 rounded-2xl p-6 mb-10 border border-accent/30 shadow-lg backdrop-blur-sm">
