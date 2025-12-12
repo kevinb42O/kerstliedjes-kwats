@@ -12,7 +12,7 @@ const CATEGORY_DATA = [
       },
       {
         original: "Last Christmas",
-        gibberish: "Laa stkris mis"
+        gibberish: "Lahaa stkris misch"
       },
       {
         original: "Jingle Bells",
@@ -20,7 +20,7 @@ const CATEGORY_DATA = [
       },
       {
         original: "We wish you a merry Christmas",
-        gibberish: "Wie wies joe, uh mer rie kris mus"
+        gibberish: "Wie wies joehuu, uh mieer rie kris musch"
       },
       {
         original: "Feliz Navidad",
@@ -28,25 +28,25 @@ const CATEGORY_DATA = [
       },
       {
         original: "Let it snow",
-        gibberish: "Leddits nou"
+        gibberish: "Led dits nouww"
       },
       {
         original: "Santa Claus is coming to town",
-        gibberish: "Sen tak loz, is kom in toe touw n"
+        gibberish: "Sen tak loz, esch koom in toet touwen"
       },
       {
         original: "Driving home for Christmas",
-        gibberish: "Draai vink, hoo mvoor kris mus"
+        gibberish: "Draai vhink, hooo mfour kris mus"
       }
     ]
   },
   {
     id: 'cat-2',
-    name: 'Vlaamse Cultuur & TV',
+    name: 'Vlaamse Cultuur & Televisie',
     songs: [
       {
         original: "F.C. De Kampioenen",
-        gibberish: "Ef seed uk amp pioe nun"
+        gibberish: "Ef seed uk amp pioeeee nuh"
       },
       {
         original: "Samson en Gert",
@@ -58,15 +58,15 @@ const CATEGORY_DATA = [
       },
       {
         original: "K3",
-        gibberish: "Kaa drie"
+        gibberish: "Kahaaderie"
       },
       {
         original: "Kabouter Plop",
-        gibberish: "Kabb ou turr plopp"
+        gibberish: "Kabb ouwe thurr plo hooppp"
       },
       {
         original: "De Slimste Mens ter Wereld",
-        gibberish: "Dus limm stum ens, terr weer ut"
+        gibberish: "Dus limm stum ensterr weer ult"
       },
       {
         original: "Thuis",
@@ -88,11 +88,11 @@ const CATEGORY_DATA = [
     songs: [
       {
         original: "Aardappelkroketten",
-        gibberish: "Aar dap pull, crow ket tun"
+        gibberish: "Ahaaar dap pwull, crow cket tun"
       },
       {
         original: "Kalkoen met champignons",
-        gibberish: "Call coon, met sjam pie njon s"
+        gibberish: "Call coon, met sjam pie njon s ouws"
       },
       {
         original: "Gourmetten",
@@ -104,11 +104,11 @@ const CATEGORY_DATA = [
       },
       {
         original: "Tomatensoep met balletjes",
-        gibberish: "Toe maat uns oep, meed bal let juss"
+        gibberish: "Toe mahaat uns oep, meed bhal let juss"
       },
       {
         original: "IJstaart",
-        gibberish: "Ice staar t"
+        gibberish: "ejs tha aart"
       },
       {
         original: "Koffie met taart",
@@ -116,7 +116,7 @@ const CATEGORY_DATA = [
       },
       {
         original: "Een pintje bier",
-        gibberish: "Ump in tje bie r"
+        gibberish: "Ump in tje bieher"
       }
     ]
   },
@@ -130,11 +130,11 @@ const CATEGORY_DATA = [
       },
       {
         original: "O Denneboom",
-        gibberish: "Ooh den nuh bown"
+        gibberish: "Owoh din nuh boohwm"
       },
       {
         original: "De herdertjes lagen bij nachte",
-        gibberish: "Duh herr durr tjes, laa gun bye nag tuh"
+        gibberish: "Duh herr durr tjes, laa gun bye n8 tuh"
       },
       {
         original: "Kling klokje klingelingeling",
@@ -142,7 +142,7 @@ const CATEGORY_DATA = [
       },
       {
         original: "Er is een kindeke geboren",
-        gibberish: "Err issun, kin duk uh, guh bo run"
+        gibberish: "Err issun, kin duk uh, guh booho run"
       }
     ]
   },
@@ -152,15 +152,15 @@ const CATEGORY_DATA = [
     songs: [
       {
         original: "De Kerstman",
-        gibberish: "Duk errs tmah n"
+        gibberish: "Duuk errs tmah hn"
       },
       {
         original: "Home Alone",
-        gibberish: "Hoo mah lown"
+        gibberish: "Hoo mah looohoon"
       },
       {
         original: "Mariah Carey",
-        gibberish: "Ma ry ah, care ree"
+        gibberish: "Ma ry ah, care riet"
       },
       {
         original: "Nieuwjaarsbrief",
@@ -172,15 +172,15 @@ const CATEGORY_DATA = [
       },
       {
         original: "Cadeautjes",
-        gibberish: "Kaa doot juss"
+        gibberish: "Ka dohot juss"
       },
       {
         original: "Vuurwerk",
-        gibberish: "Vuur werr k"
+        gibberish: "V4weherk"
       },
       {
         original: "Koning Filip",
-        gibberish: "Koon ink fee lip"
+        gibberish: "Koon ink fee lup"
       }
     ]
   }
