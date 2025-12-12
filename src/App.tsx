@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { GameState, Player, Song } from '@/lib/types'
 import { generatePlayerId, ensureUniqueName, getRandomPlayerIndex, SONGS_PER_ROUND, INITIAL_SKIPS_PER_ROUND, shouldAdvanceToNextRound, isLastCategory } from '@/lib/game-utils'
 import { createSongsList, createCategories, getRandomUnusedSongFromCategory } from '@/lib/songs'
 import { WelcomeScreen } from '@/components/WelcomeScreen'
@@ -284,7 +283,7 @@ function App() {
   }
 
   if (!isInitialized) {
-    return null
+  if (!isInitialized) {
   }
 
   return (
