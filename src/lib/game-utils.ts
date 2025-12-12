@@ -38,6 +38,7 @@ export function getLeaderboard(players: Player[]): Player[] {
 }
 
 export const SONGS_PER_ROUND = 5
+export const INITIAL_SKIPS_PER_ROUND = 3
 
 export function getSongsUsedInCategory(categoryId: string, songs: Song[]): number {
   return songs.filter(s => s.categoryId === categoryId && s.used).length

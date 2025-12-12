@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card'
 import { Player, Song } from '@/lib/types'
 import { PlayerSeat } from './PlayerSeat'
 import { RoundProgress } from './RoundProgress'
-import { SONGS_PER_ROUND } from '@/lib/game-utils'
+import { SONGS_PER_ROUND, INITIAL_SKIPS_PER_ROUND } from '@/lib/game-utils'
 import { Eye, CheckCircle, SkipForward, SignOut, Crown, User, Sparkle } from '@phosphor-icons/react'
 import { Confetti } from './Confetti'
 import {
@@ -390,7 +390,7 @@ export function PlayingScreen({
                   size="lg"
                 >
                   <SkipForward className="mr-3" size={28} />
-                  Nieuw lied ({skipsRemaining}/3 skips over)
+                  Nieuw lied ({skipsRemaining}/{INITIAL_SKIPS_PER_ROUND} skips over)
                 </Button>
               </div>
             ) : (

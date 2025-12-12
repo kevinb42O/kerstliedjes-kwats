@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { GameState, Player, Song } from '@/lib/types'
-import { generatePlayerId, ensureUniqueName, getRandomPlayerIndex, SONGS_PER_ROUND, shouldAdvanceToNextRound, isLastCategory } from '@/lib/game-utils'
+import { generatePlayerId, ensureUniqueName, getRandomPlayerIndex, SONGS_PER_ROUND, INITIAL_SKIPS_PER_ROUND, shouldAdvanceToNextRound, isLastCategory } from '@/lib/game-utils'
 import { createSongsList, createCategories, getRandomUnusedSongFromCategory } from '@/lib/songs'
 import { WelcomeScreen } from '@/components/WelcomeScreen'
 import { SeatingScreen } from '@/components/SeatingScreen'
@@ -53,7 +53,7 @@ function App() {
         id: generatePlayerId(),
         name: uniqueName,
         score: 0,
-        skipsRemaining: 3,
+        skipsRemaining: INITIAL_SKIPS_PER_ROUND,
         color: colors[current.players.length % colors.length]
       }
       
@@ -179,7 +179,7 @@ function App() {
             setGameState((curr) => {
               if (!curr) return curr!
               // Reset skips for all players
-              const resetPlayers = curr.players.map(p => ({ ...p, skipsRemaining: 3 }))
+              const resetPlayers = curr.players.map(p => ({ ...p, skipsRemaining: INITIAL_SKIPS_PER_ROUND }))
               return {
                 ...curr,
                 phase: 'round-transition' as const,
@@ -213,7 +213,7 @@ function App() {
       
       if (newSkipsRemaining < 0) {
         toast.error('Geen skips meer over!', {
-          description: 'Je hebt al je 3 skips gebruikt.'
+          description: `Je hebt al je ${INITIAL_SKIPS_PER_ROUND} skips gebruikt.`
         })
         return current
       }
@@ -246,7 +246,7 @@ function App() {
             }
           } else {
             // Move to next round
-            const resetPlayers = current.players.map(p => ({ ...p, skipsRemaining: 3 }))
+            const resetPlayers = current.players.map(p => ({ ...p, skipsRemaining: INITIAL_SKIPS_PER_ROUND }))
             return {
               ...current,
               phase: 'round-transition' as const,
@@ -345,7 +345,7 @@ function App() {
           players={gameState.players}
           currentPlayerIndex={gameState.currentPlayerIndex}
           currentSong={gameState.currentSong}
-          skipsRemaining={gameState.players[gameState.currentPlayerIndex]?.skipsRemaining ?? 3}
+          skipsRemaining={gameState.players[gameState.currentPlayerIndex]?.skipsRemaining ?? INITIAL_SKIPS_PER_ROUND}
           onRevealSong={handleRevealSong}
           onCorrectGuess={handleCorrectGuess}
           onSkipSong={handleSkipSong}
