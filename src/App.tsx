@@ -28,28 +28,15 @@ function App() {
   })
 
   useEffect(() => {
-    const clearAllData = async () => {
+    const initializeApp = async () => {
       const allKeys = await window.spark.kv.keys()
       for (const key of allKeys) {
         await window.spark.kv.delete(key)
       }
-      
-      setGameState({
-        phase: 'welcome',
-        players: [],
-        currentPlayerIndex: -1,
-        currentSong: null,
-        songs: createSongsList(),
-        roundNumber: 0,
-        categories: createCategories(),
-        currentCategoryIndex: 0,
-        songsUsedInCurrentRound: 0
-      })
-      
       setIsInitialized(true)
     }
     
-    clearAllData()
+    initializeApp()
   }, [])
 
   const handleStartSeating = () => {
