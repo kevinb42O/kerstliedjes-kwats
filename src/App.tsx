@@ -26,6 +26,18 @@ function App() {
     songsUsedInCurrentRound: 0
   })
 
+  useEffect(() => {
+    if (gameState && gameState.phase !== 'welcome' && gameState.phase !== 'seating' && gameState.phase !== 'confirm' && gameState.players.length === 0) {
+      setGameState((current) => {
+        if (!current) return current!
+        return {
+          ...current,
+          phase: 'welcome'
+        }
+      })
+    }
+  }, [])
+
   const handleStartSeating = () => {
     setGameState((current) => {
       if (!current) return current!
