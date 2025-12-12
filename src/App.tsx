@@ -33,6 +33,18 @@ function App() {
         await window.spark.kv.delete(key)
       }
       
+      setGameState({
+        phase: 'welcome',
+        players: [],
+        currentPlayerIndex: -1,
+        currentSong: null,
+        songs: createSongsList(),
+        roundNumber: 0,
+        categories: createCategories(),
+        currentCategoryIndex: 0,
+        songsUsedInCurrentRound: 0
+      })
+      
       setIsInitialized(true)
     }
     
