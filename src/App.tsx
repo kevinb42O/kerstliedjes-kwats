@@ -14,6 +14,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
 
 function App() {
+  const [isInitialized, setIsInitialized] = useState(false)
   const [gameState, setGameState] = useKV<GameState>('game-state', {
     phase: 'welcome',
     players: [],
@@ -44,6 +45,8 @@ function App() {
         currentCategoryIndex: 0,
         songsUsedInCurrentRound: 0
       })
+      
+      setIsInitialized(true)
     }
     
     clearAllData()
@@ -327,7 +330,7 @@ function App() {
     })
   }
 
-  if (!gameState) {
+  if (!gameState || !isInitialized) {
     return null
   }
 
