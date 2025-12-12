@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { GameState, Player, Song } from '@/lib/types'
-import { generatePlayerId, ensureUniqueName, getRandomPlayerIndex } from '@/lib/game-utils'
-import { createSongsList, getRandomUnusedSong } from '@/lib/songs'
+import { generatePlayerId, ensureUniqueName, getRandomPlayerIndex, SONGS_PER_ROUND, shouldAdvanceToNextRound, isLastCategory } from '@/lib/game-utils'
+import { createSongsList, createCategories, getRandomUnusedSongFromCategory } from '@/lib/songs'
 import { WelcomeScreen } from '@/components/WelcomeScreen'
 import { SeatingScreen } from '@/components/SeatingScreen'
 import { ConfirmScreen } from '@/components/ConfirmScreen'
 import { PlayingScreen } from '@/components/PlayingScreen'
 import { LeaderboardScreen } from '@/components/LeaderboardScreen'
+import { RoundTransition } from '@/components/RoundTransition'
 import { SnowfallBackground } from '@/components/SnowfallBackground'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
@@ -19,7 +20,10 @@ function App() {
     currentPlayerIndex: -1,
     currentSong: null,
     songs: createSongsList(),
-    roundNumber: 0
+    roundNumber: 0,
+    categories: createCategories(),
+    currentCategoryIndex: 0,
+    songsUsedInCurrentRound: 0
   })
 
   const handleStartSeating = () => {
@@ -32,7 +36,10 @@ function App() {
         songs: createSongsList(),
         roundNumber: 0,
         currentPlayerIndex: -1,
-        currentSong: null
+        currentSong: null,
+        categories: createCategories(),
+        currentCategoryIndex: 0,
+        songsUsedInCurrentRound: 0
       }
     })
   }
@@ -77,10 +84,21 @@ function App() {
       const firstPlayerIndex = getRandomPlayerIndex(current.players)
       return {
         ...current,
-        phase: 'playing' as const,
+        phase: 'round-transition' as const,
         currentPlayerIndex: firstPlayerIndex,
         roundNumber: 1,
-        skipsRemaining: 3
+        currentCategoryIndex: 0,
+        songsUsedInCurrentRound: 0
+      }
+    })
+  }
+
+  const handleContinueFromTransition = () => {
+    setGameState((current) => {
+      if (!current) return current!
+      return {
+        ...current,
+        phase: 'playing' as const
       }
     })
   }
@@ -88,14 +106,29 @@ function App() {
   const handleRevealSong = () => {
     setGameState((current) => {
       if (!current) return current!
-      const song = getRandomUnusedSong(current.songs)
-      if (!song) {
-        toast.error('Alle liedjes zijn gebruikt!')
+      
+      const categories = current.categories || createCategories()
+      const categoryIndex = current.currentCategoryIndex ?? 0
+      const currentCategory = categories[categoryIndex]
+      
+      if (!currentCategory) {
+        toast.error('Geen categorie gevonden!')
         return {
           ...current,
           phase: 'leaderboard' as const
         }
       }
+      
+      const song = getRandomUnusedSongFromCategory(currentCategory.id, current.songs)
+      
+      if (!song) {
+        toast.error('Alle liedjes in deze categorie zijn gebruikt!')
+        return {
+          ...current,
+          phase: 'leaderboard' as const
+        }
+      }
+      
       return {
         ...current,
         currentSong: song
@@ -121,17 +154,43 @@ function App() {
         description: `+1 punt voor ${guesser.name}`
       })
 
-      const unusedSongs = updatedSongs.filter(s => !s.used)
-      if (unusedSongs.length === 0) {
-        setTimeout(() => {
-          setGameState((curr) => {
-            if (!curr) return curr!
-            return {
-              ...curr,
-              phase: 'leaderboard' as const
-            }
-          })
-        }, 2000)
+      const categories = current.categories || createCategories()
+      const categoryIndex = current.currentCategoryIndex ?? 0
+      const songsUsed = (current.songsUsedInCurrentRound ?? 0) + 1
+
+      // Check if we need to advance to next round
+      if (shouldAdvanceToNextRound(songsUsed)) {
+        const nextCategoryIndex = categoryIndex + 1
+        
+        // Check if game is over
+        if (nextCategoryIndex >= categories.length) {
+          setTimeout(() => {
+            setGameState((curr) => {
+              if (!curr) return curr!
+              return {
+                ...curr,
+                phase: 'leaderboard' as const
+              }
+            })
+          }, 2000)
+        } else {
+          // Move to next round
+          setTimeout(() => {
+            setGameState((curr) => {
+              if (!curr) return curr!
+              // Reset skips for all players
+              const resetPlayers = curr.players.map(p => ({ ...p, skipsRemaining: 3 }))
+              return {
+                ...curr,
+                phase: 'round-transition' as const,
+                currentCategoryIndex: nextCategoryIndex,
+                songsUsedInCurrentRound: 0,
+                roundNumber: nextCategoryIndex + 1,
+                players: resetPlayers
+              }
+            })
+          }, 2000)
+        }
       }
 
       return {
@@ -140,7 +199,7 @@ function App() {
         songs: updatedSongs,
         currentPlayerIndex: guesserIndex,
         currentSong: null,
-        roundNumber: current.roundNumber + 1
+        songsUsedInCurrentRound: songsUsed
       }
     })
   }
@@ -167,13 +226,41 @@ function App() {
         s.id === current.currentSong?.id ? { ...s, used: true } : s
       )
 
-      const newSong = getRandomUnusedSong(updatedSongs)
+      const categories = current.categories || createCategories()
+      const categoryIndex = current.currentCategoryIndex ?? 0
+      const currentCategory = categories[categoryIndex]
+      const songsUsed = (current.songsUsedInCurrentRound ?? 0) + 1
+
+      const newSong = getRandomUnusedSongFromCategory(currentCategory.id, updatedSongs)
       
       if (!newSong) {
-        toast.error('Alle liedjes zijn gebruikt!')
-        return {
-          ...current,
-          phase: 'leaderboard' as const
+        // Check if we need to advance to next round
+        if (shouldAdvanceToNextRound(songsUsed)) {
+          const nextCategoryIndex = categoryIndex + 1
+          
+          if (nextCategoryIndex >= categories.length) {
+            toast.error('Het spel is afgelopen!')
+            return {
+              ...current,
+              phase: 'leaderboard' as const
+            }
+          } else {
+            // Move to next round
+            const resetPlayers = current.players.map(p => ({ ...p, skipsRemaining: 3 }))
+            return {
+              ...current,
+              phase: 'round-transition' as const,
+              currentCategoryIndex: nextCategoryIndex,
+              songsUsedInCurrentRound: 0,
+              roundNumber: nextCategoryIndex + 1,
+              players: resetPlayers,
+              songs: updatedSongs,
+              currentSong: null
+            }
+          }
+        } else {
+          toast.error('Geen liedjes meer in deze categorie!')
+          return current
         }
       }
 
@@ -187,7 +274,8 @@ function App() {
         ...current,
         players: updatedPlayers,
         songs: updatedSongs,
-        currentSong: newSong
+        currentSong: newSong,
+        songsUsedInCurrentRound: songsUsed
       }
     })
   }
@@ -209,7 +297,10 @@ function App() {
       currentPlayerIndex: -1,
       currentSong: null,
       songs: createSongsList(),
-      roundNumber: 0
+      roundNumber: 0,
+      categories: createCategories(),
+      currentCategoryIndex: 0,
+      songsUsedInCurrentRound: 0
     })
   }
 
@@ -240,6 +331,15 @@ function App() {
         />
       )}
 
+      {gameState.phase === 'round-transition' && (
+        <RoundTransition
+          categoryName={gameState.categories?.[gameState.currentCategoryIndex ?? 0]?.name ?? 'Onbekende categorie'}
+          roundNumber={gameState.roundNumber}
+          isFinale={isLastCategory(gameState.currentCategoryIndex ?? 0, gameState.categories || [])}
+          onContinue={handleContinueFromTransition}
+        />
+      )}
+
       {gameState.phase === 'playing' && (
         <PlayingScreen
           players={gameState.players}
@@ -250,6 +350,9 @@ function App() {
           onCorrectGuess={handleCorrectGuess}
           onSkipSong={handleSkipSong}
           onEndGame={handleEndGame}
+          categoryName={gameState.categories?.[gameState.currentCategoryIndex ?? 0]?.name ?? 'Onbekende categorie'}
+          songsUsedInRound={gameState.songsUsedInCurrentRound ?? 0}
+          isFinale={isLastCategory(gameState.currentCategoryIndex ?? 0, gameState.categories || [])}
         />
       )}
 

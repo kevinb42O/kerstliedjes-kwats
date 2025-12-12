@@ -3,7 +3,9 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Player, Song } from '@/lib/types'
 import { PlayerSeat } from './PlayerSeat'
-import { Eye, CheckCircle, SkipForward, SignOut, Crown, User } from '@phosphor-icons/react'
+import { RoundProgress } from './RoundProgress'
+import { SONGS_PER_ROUND } from '@/lib/game-utils'
+import { Eye, CheckCircle, SkipForward, SignOut, Crown, User, Sparkle } from '@phosphor-icons/react'
 import { Confetti } from './Confetti'
 import {
   Dialog,
@@ -23,6 +25,9 @@ interface PlayingScreenProps {
   onCorrectGuess: (playerId: string) => void
   onSkipSong: () => void
   onEndGame: () => void
+  categoryName: string
+  songsUsedInRound: number
+  isFinale: boolean
 }
 
 export function PlayingScreen({
@@ -33,7 +38,10 @@ export function PlayingScreen({
   onRevealSong,
   onCorrectGuess,
   onSkipSong,
-  onEndGame
+  onEndGame,
+  categoryName,
+  songsUsedInRound,
+  isFinale
 }: PlayingScreenProps) {
   const [showSong, setShowSong] = useState(false)
   const [selectingGuesser, setSelectingGuesser] = useState(false)
@@ -105,19 +113,39 @@ export function PlayingScreen({
       <Confetti trigger={showConfetti} onComplete={() => setShowConfetti(false)} />
       
       {/* Header met ronde info */}
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="font-display font-semibold text-xl md:text-2xl text-accent drop-shadow-md">
-          Ronde {roundNumber}
-        </h2>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowEndDialog(true)}
-          className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
-        >
-          <SignOut className="mr-2" size={18} />
-          Einde spel
-        </Button>
+      <div className="mb-6">
+        <div className="flex justify-between items-center mb-3">
+          <div className={`flex items-center gap-3 ${isFinale ? 'animate-pulse' : ''}`}>
+            {isFinale && <Sparkle weight="fill" size={28} className="text-yellow-400" />}
+            <h2 className={`font-display font-semibold text-2xl md:text-3xl drop-shadow-md ${
+              isFinale ? 'text-yellow-400' : 'text-accent'
+            }`}>
+              {isFinale ? 'FINALE' : `Ronde ${roundNumber}`}
+            </h2>
+            {isFinale && <Sparkle weight="fill" size={28} className="text-yellow-400" />}
+          </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setShowEndDialog(true)}
+            className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+          >
+            <SignOut className="mr-2" size={18} />
+            Einde spel
+          </Button>
+        </div>
+        <div className="text-center">
+          <p className={`text-lg md:text-xl font-semibold mb-2 ${
+            isFinale ? 'text-yellow-300' : 'text-accent/90'
+          }`}>
+            {categoryName}
+          </p>
+          <RoundProgress 
+            current={songsUsedInRound} 
+            total={SONGS_PER_ROUND} 
+            isFinale={isFinale}
+          />
+        </div>
       </div>
 
       {/* Kersttafel view - alleen tonen als lied NIET wordt getoond */}
@@ -282,7 +310,11 @@ export function PlayingScreen({
           <div className="w-full max-w-4xl">
             {/* Voorlees kaart - EXTRA GROOT voor leesbaarheid */}
             <Card 
-              className="p-8 md:p-16 mb-6 bg-gradient-to-br from-primary via-primary/90 to-secondary text-foreground border-4 border-accent relative overflow-hidden shadow-2xl cursor-pointer hover:shadow-accent/50 transition-all"
+              className={`p-8 md:p-16 mb-6 text-foreground border-4 relative overflow-hidden shadow-2xl cursor-pointer transition-all ${
+                isFinale 
+                  ? 'bg-gradient-to-br from-yellow-500 via-amber-500 to-orange-600 border-yellow-300 hover:shadow-yellow-400/50' 
+                  : 'bg-gradient-to-br from-primary via-primary/90 to-secondary border-accent hover:shadow-accent/50'
+              }`}
               onClick={() => setShowAnswer(!showAnswer)}
             >
               <div className="absolute inset-0 opacity-20"
@@ -295,27 +327,43 @@ export function PlayingScreen({
               />
               
               <div className="relative z-10">
-                <p className="text-lg md:text-xl uppercase tracking-widest mb-6 text-accent font-bold">
+                <p className={`text-lg md:text-xl uppercase tracking-widest mb-6 font-bold ${
+                  isFinale ? 'text-white' : 'text-accent'
+                }`}>
                   Lees dit hardop voor:
                 </p>
                 {/* MEGA GROTE TEKST voor ouderen */}
-                <p className="text-5xl md:text-7xl font-bold leading-relaxed text-accent tracking-wide mb-6 font-lato drop-shadow-lg" 
+                <p className={`text-5xl md:text-7xl font-bold leading-relaxed tracking-wide mb-6 font-lato drop-shadow-lg ${
+                  isFinale ? 'text-white' : 'text-accent'
+                }`} 
                    style={{ lineHeight: '1.4' }}>
                   {currentSong?.gibberish}
                 </p>
                 
                 {/* Antwoord sectie */}
                 {!showAnswer ? (
-                  <div className="mt-8 pt-6 border-t-2 border-accent/30">
-                    <p className="text-xl md:text-2xl text-accent/80 italic flex items-center justify-center gap-2">
+                  <div className={`mt-8 pt-6 border-t-2 ${
+                    isFinale ? 'border-white/30' : 'border-accent/30'
+                  }`}>
+                    <p className={`text-xl md:text-2xl italic flex items-center justify-center gap-2 ${
+                      isFinale ? 'text-white/80' : 'text-accent/80'
+                    }`}>
                       <Eye size={24} weight="bold" />
                       Klik om het antwoord te zien
                     </p>
                   </div>
                 ) : (
-                  <div className="mt-8 pt-6 border-t-4 border-accent animate-in fade-in duration-300">
-                    <p className="text-2xl md:text-3xl text-accent/80 font-bold mb-3">Het antwoord is:</p>
-                    <p className="text-4xl md:text-6xl font-bold text-accent drop-shadow-lg">
+                  <div className={`mt-8 pt-6 border-t-4 animate-in fade-in duration-300 ${
+                    isFinale ? 'border-white' : 'border-accent'
+                  }`}>
+                    <p className={`text-2xl md:text-3xl font-bold mb-3 ${
+                      isFinale ? 'text-white/80' : 'text-accent/80'
+                    }`}>
+                      Het antwoord is:
+                    </p>
+                    <p className={`text-4xl md:text-6xl font-bold drop-shadow-lg ${
+                      isFinale ? 'text-white' : 'text-accent'
+                    }`}>
                       {currentSong?.original}
                     </p>
                   </div>
