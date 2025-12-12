@@ -1,13 +1,16 @@
 {
-  "id": "/",
+  "id": "kerstliedjes-kwats",
   "name": "Kerstliedjes Kwats",
   "short_name": "Kwats",
   "description": "A festive Christmas song guessing game for family and friends",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#1e5631",
   "theme_color": "#1e5631",
   "orientation": "portrait",
+  "categories": ["games", "entertainment"],
+  "lang": "nl",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

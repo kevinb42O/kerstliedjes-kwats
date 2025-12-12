@@ -117,3 +117,211 @@ body {
   animation: confetti-fall 1s ease-out forwards;
   will-change: transform, opacity;
 }
+
+/* Christmas Tree Styles */
+.christmas-tree {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  opacity: 0.15;
+}
+
+.tree-star {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 25px solid oklch(0.95 0.2 85);
+  filter: drop-shadow(0 0 10px oklch(0.95 0.2 85));
+}
+
+.tree-star::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 25px solid oklch(0.95 0.2 85);
+}
+
+.tree-layer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-bottom: solid oklch(0.45 0.15 155);
+}
+
+.tree-layer-1 {
+  top: 20px;
+  border-left-width: 40px;
+  border-right-width: 40px;
+  border-bottom-width: 60px;
+}
+
+.tree-layer-2 {
+  top: 60px;
+  border-left-width: 60px;
+  border-right-width: 60px;
+  border-bottom-width: 70px;
+}
+
+.tree-layer-3 {
+  top: 110px;
+  border-left-width: 80px;
+  border-right-width: 80px;
+  border-bottom-width: 80px;
+}
+
+.tree-layer-4 {
+  top: 170px;
+  border-left-width: 100px;
+  border-right-width: 100px;
+  border-bottom-width: 90px;
+}
+
+.tree-layer-5 {
+  top: 240px;
+  border-left-width: 120px;
+  border-right-width: 120px;
+  border-bottom-width: 100px;
+}
+
+.tree-trunk {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 60px;
+  background-color: oklch(0.35 0.08 40);
+  border-radius: 5px;
+}
+
+/* Twinkling Christmas Lights */
+.light {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: twinkle 1.5s infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+    filter: brightness(1.8);
+  }
+}
+
+.light-1 {
+  top: 40px;
+  left: 45%;
+  background-color: #ff0000;
+  box-shadow: 0 0 10px #ff0000;
+  animation-delay: 0s;
+}
+
+.light-2 {
+  top: 45px;
+  left: 55%;
+  background-color: #00ff00;
+  box-shadow: 0 0 10px #00ff00;
+  animation-delay: 0.3s;
+}
+
+.light-3 {
+  top: 80px;
+  left: 38%;
+  background-color: #0000ff;
+  box-shadow: 0 0 10px #0000ff;
+  animation-delay: 0.6s;
+}
+
+.light-4 {
+  top: 85px;
+  left: 62%;
+  background-color: #ffff00;
+  box-shadow: 0 0 10px #ffff00;
+  animation-delay: 0.9s;
+}
+
+.light-5 {
+  top: 130px;
+  left: 35%;
+  background-color: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff;
+  animation-delay: 0.2s;
+}
+
+.light-6 {
+  top: 135px;
+  left: 65%;
+  background-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  animation-delay: 0.5s;
+}
+
+.light-7 {
+  top: 190px;
+  left: 32%;
+  background-color: #ff4500;
+  box-shadow: 0 0 10px #ff4500;
+  animation-delay: 0.8s;
+}
+
+.light-8 {
+  top: 195px;
+  left: 68%;
+  background-color: #9400d3;
+  box-shadow: 0 0 10px #9400d3;
+  animation-delay: 0.1s;
+}
+
+.light-9 {
+  top: 260px;
+  left: 28%;
+  background-color: #ff1493;
+  box-shadow: 0 0 10px #ff1493;
+  animation-delay: 0.4s;
+}
+
+.light-10 {
+  top: 265px;
+  left: 72%;
+  background-color: #00ff7f;
+  box-shadow: 0 0 10px #00ff7f;
+  animation-delay: 0.7s;
+}
+
+.light-11 {
+  top: 150px;
+  left: 50%;
+  background-color: #ffd700;
+  box-shadow: 0 0 10px #ffd700;
+  animation-delay: 1s;
+}
+
+.light-12 {
+  top: 220px;
+  left: 50%;
+  background-color: #ff6347;
+  box-shadow: 0 0 10px #ff6347;
+  animation-delay: 1.3s;
+}
