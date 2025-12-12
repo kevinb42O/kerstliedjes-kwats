@@ -11,9 +11,16 @@ export interface Song {
   original: string
   gibberish: string
   used: boolean
+  categoryId: string
 }
 
-export type GamePhase = 'welcome' | 'seating' | 'confirm' | 'playing' | 'leaderboard'
+export interface Category {
+  id: string
+  name: string
+  songs: Song[]
+}
+
+export type GamePhase = 'welcome' | 'seating' | 'confirm' | 'playing' | 'leaderboard' | 'round-transition'
 
 export interface GameState {
   phase: GamePhase
@@ -22,4 +29,7 @@ export interface GameState {
   currentSong: Song | null
   songs: Song[]
   roundNumber: number
+  categories?: Category[]
+  currentCategoryIndex?: number
+  songsUsedInCurrentRound?: number
 }

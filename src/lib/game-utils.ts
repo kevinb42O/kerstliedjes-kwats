@@ -1,4 +1,4 @@
-import { Player } from './types'
+import { Player, Category, Song } from './types'
 
 export function generatePlayerId(): string {
   return `player-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
@@ -35,4 +35,23 @@ export function ensureUniqueName(name: string, existingPlayers: Player[]): strin
 
 export function getLeaderboard(players: Player[]): Player[] {
   return [...players].sort((a, b) => b.score - a.score)
+}
+
+export const SONGS_PER_ROUND = 5
+export const INITIAL_SKIPS_PER_ROUND = 3
+
+export function getSongsUsedInCategory(categoryId: string, songs: Song[]): number {
+  return songs.filter(s => s.categoryId === categoryId && s.used).length
+}
+
+export function getUnusedSongsInCategory(categoryId: string, songs: Song[]): Song[] {
+  return songs.filter(s => s.categoryId === categoryId && !s.used)
+}
+
+export function shouldAdvanceToNextRound(songsUsedInCurrentRound: number): boolean {
+  return songsUsedInCurrentRound >= SONGS_PER_ROUND
+}
+
+export function isLastCategory(currentCategoryIndex: number, categories: Category[]): boolean {
+  return currentCategoryIndex === categories.length - 1
 }
