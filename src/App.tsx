@@ -34,7 +34,7 @@ function App() {
         await window.spark.kv.delete(key)
       }
       
-      setGameState({
+      await window.spark.kv.set('game-state', {
         phase: 'welcome',
         players: [],
         currentPlayerIndex: -1,
