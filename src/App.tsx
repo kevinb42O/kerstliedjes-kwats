@@ -27,15 +27,26 @@ function App() {
   })
 
   useEffect(() => {
-    if (gameState && gameState.phase !== 'welcome' && gameState.phase !== 'seating' && gameState.phase !== 'confirm' && gameState.players.length === 0) {
-      setGameState((current) => {
-        if (!current) return current!
-        return {
-          ...current,
-          phase: 'welcome'
-        }
+    const clearAllData = async () => {
+      const allKeys = await window.spark.kv.keys()
+      for (const key of allKeys) {
+        await window.spark.kv.delete(key)
+      }
+      
+      setGameState({
+        phase: 'welcome',
+        players: [],
+        currentPlayerIndex: -1,
+        currentSong: null,
+        songs: createSongsList(),
+        roundNumber: 0,
+        categories: createCategories(),
+        currentCategoryIndex: 0,
+        songsUsedInCurrentRound: 0
       })
     }
+    
+    clearAllData()
   }, [])
 
   const handleStartSeating = () => {
