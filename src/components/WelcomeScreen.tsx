@@ -65,22 +65,28 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
       </div>
 
       <div className="text-center max-w-2xl relative z-10">
-        <h1 className="font-display font-bold text-5xl md:text-7xl text-accent mb-3 tracking-tight drop-shadow-lg animate-in fade-in duration-1000">
-          Huh luck ig knew yar!
+        <h1 className="font-display font-bold text-5xl md:text-7xl mb-3 tracking-tight drop-shadow-lg animate-in fade-in duration-1000">
+          <span style={{ color: 'oklch(0.55 0.22 25)' }}>Hulukuh</span>{' '}
+          <span style={{ color: 'oklch(0.45 0.15 155)' }}>Knew</span>{' '}
+          <span style={{ color: 'oklch(0.75 0.15 85)' }}>Yar!</span>
         </h1>
         
-        <h2 className="font-display text-2xl md:text-3xl text-accent/80 mb-6 italic">
-          Het Mad Gab Kerstspel
+        <h2 className="font-display text-2xl md:text-3xl text-accent/80 mb-4 italic">
+          Het Dronken gebrabbel raadspel
         </h2>
         
         <p className="text-xl md:text-2xl text-foreground/90 mb-8 leading-relaxed">
-          Raad het kerstlied aan de hand van <span className="font-bold text-accent">verhaspelde uitspraak</span>
+          Raad het woord aan de hand van <span className="font-bold text-accent">de dronken uitspraak...</span>
+        </p>
+        
+        <p className="text-lg text-foreground/70 mb-8 italic">
+          Veel plezier en een fijn eindejaar voor iedereen.
         </p>
         
         <div className="bg-card/90 rounded-2xl p-6 mb-10 border border-accent/30 shadow-lg backdrop-blur-sm">
           <p className="text-foreground/80 text-lg leading-relaxed">
-            Speel rond de tafel, geef de telefoon door, lees de verhaspelde liedjes voor, 
-            en laat je vrienden raden welk kerstlied het is!
+            Speel rond de tafel, geef de telefoon door, lees de verhaspelde teksten voor, 
+            en laat je vrienden raden welk woord het is!
           </p>
         </div>
 
