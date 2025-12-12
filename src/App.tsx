@@ -280,10 +280,6 @@ function App() {
     })
   }
 
-  return (
-    <div className="relative min-h-screen">
-      <SnowfallBackground />
-      
       {gameState.phase === 'welcome' && (
         <WelcomeScreen onStart={handleStartSeating} />
       )}
