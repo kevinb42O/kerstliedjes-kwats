@@ -1,133 +1,16 @@
 import { Song } from './types'
 
 export const CHRISTMAS_SONGS: Omit<Song, 'id' | 'used'>[] = [
-  // Categorie 1: De Klassieke Meezingers (NL)
+  // Categorie 1: De Absolute Kerstklassiekers (Engelstalig)
+  // Iedereen kent deze refreinen, de kunst is de Engelse klanken vernederlandsen.
   {
-    original: "Stille Nacht, Heilige Nacht",
-    gibberish: "Still hun aacht, haai lieg hun aacht"
+    original: "All I want for Christmas is you",
+    gibberish: "Ollie wan tvoor krust mus is shoe"
   },
   {
-    original: "O Denneboom",
-    gibberish: "Ode hunne bown"
+    original: "Last Christmas",
+    gibberish: "Laa stkris mis"
   },
-  {
-    original: "Kling klokje klingelingeling",
-    gibberish: "Klink lochk juh, klinge ling uh link"
-  },
-  {
-    original: "Midden in de winternacht",
-    gibberish: "Mid dunin, duh win turn aagt"
-  },
-  {
-    original: "De herdertjes lagen bij nachte",
-    gibberish: "Duh herr durr, tjeslaa gun bye nag tuh"
-  },
-  {
-    original: "Er is een kindeke",
-    gibberish: "Eh riezz un, kin duh kuh"
-  },
-  {
-    original: "Gloria in excelsis Deo",
-    gibberish: "Gloor riek ja, in nek sell zies day jo"
-  },
-  {
-    original: "Nu zijt wellekome",
-    gibberish: "Nuh zijd, well uk oo muhl"
-  },
-  {
-    original: "Komt allen tezamen",
-    gibberish: "Komm talleh, ntee zaa muhl"
-  },
-  {
-    original: "Klein klein Jezuke",
-    gibberish: "Klaai nkl ayn, jay zuu kuh"
-  },
-  
-  // Categorie 2: Vlaamse Hits & Cultuur
-  {
-    original: "Een bakske vol met stro",
-    gibberish: "Umba kskuh, vollm ets trow"
-  },
-  {
-    original: "Samson en Gert",
-    gibberish: "Samm sonn, eng herr t"
-  },
-  {
-    original: "Kerstmis, Kerstmis",
-    gibberish: "Kerst miss, kerst miss"
-  },
-  {
-    original: "Kindje Jezus",
-    gibberish: "Kinn djee, jey zuus"
-  },
-  {
-    original: "Susa Nina",
-    gibberish: "Suu zann ie nah"
-  },
-  {
-    original: "De Drie Koningen",
-    gibberish: "Duh driek, oon in gun"
-  },
-  {
-    original: "Nieuwjaarsbrief",
-    gibberish: "Niew ya rz brieve"
-  },
-  {
-    original: "Zalig kerstfeest",
-    gibberish: "Sah lig kers tveys t"
-  },
-  {
-    original: "Gelukkig nieuwjaar",
-    gibberish: "Huh luck ig, knew yar"
-  },
-  {
-    original: "Kerstmarkt",
-    gibberish: "Care st marq t"
-  },
-  
-  // Categorie 3: Eten & Drinken
-  {
-    original: "Aardappelkroketten",
-    gibberish: "Aar dap pull, cro keh tun"
-  },
-  {
-    original: "Tomaat garnaal",
-    gibberish: "Toe maat, gar nahl"
-  },
-  {
-    original: "Kerststronk",
-    gibberish: "Care sts tronk"
-  },
-  {
-    original: "Kalkoen met champignonsaus",
-    gibberish: "Call coon, met cham pi non saus"
-  },
-  {
-    original: "Kaasfondue",
-    gibberish: "Kazz von dew"
-  },
-  {
-    original: "Gourmetpannetjes",
-    gibberish: "Goer meh, pahn net yuhs"
-  },
-  {
-    original: "Champagne",
-    gibberish: "Sjam pah nuh"
-  },
-  {
-    original: "Glühwein",
-    gibberish: "Gleuw eye n"
-  },
-  {
-    original: "Chocolademousse",
-    gibberish: "Show co lah, duh mouss"
-  },
-  {
-    original: "Ijstaart",
-    gibberish: "Ice staar t"
-  },
-  
-  // Categorie 4: Internationale Hits
   {
     original: "Jingle Bells",
     gibberish: "Djin kuhlb els"
@@ -137,78 +20,149 @@ export const CHRISTMAS_SONGS: Omit<Song, 'id' | 'used'>[] = [
     gibberish: "Wie wies joe, uh mer rie kris mus"
   },
   {
-    original: "All I want for Christmas",
-    gibberish: "Oll aai wond, fork ris mis"
-  },
-  {
-    original: "Last Christmas",
-    gibberish: "Las tkris mis"
-  },
-  {
-    original: "White Christmas",
-    gibberish: "Waa iet kris mus"
-  },
-  {
     original: "Feliz Navidad",
-    gibberish: "Fay lies, nah wie dat"
+    gibberish: "Fiel ies, nah wie dat"
+  },
+  {
+    original: "Let it snow",
+    gibberish: "Leddits nou"
+  },
+  {
+    original: "Santa Claus is coming to town",
+    gibberish: "Sen tak loz, is kom in toe touw n"
   },
   {
     original: "Driving home for Christmas",
-    gibberish: "Dray vin, hoo m fork ris mis"
+    gibberish: "Draai vink, hoo mvoor kris mus"
+  },
+
+  // Categorie 2: Vlaamse Cultuur & TV (Generatie-overschrijdend)
+  {
+    original: "F.C. De Kampioenen",
+    gibberish: "Ef seed uk amp pioe nun"
   },
   {
-    original: "Let it snow, let it snow",
-    gibberish: "Le ttits no, le ttits no"
+    original: "Samson en Gert",
+    gibberish: "Sah mso neng errt"
   },
   {
-    original: "Santa Claus is coming",
-    gibberish: "Zen tak loz, is kom ink"
+    original: "Een bakske vol met stro",
+    gibberish: "Emba kskuh, vollm ets trow"
   },
   {
-    original: "Merry Christmas everyone",
-    gibberish: "Mer riek ris mus, eff riew on"
+    original: "K3",
+    gibberish: "Kaa drie"
+  },
+  {
+    original: "Kabouter Plop",
+    gibberish: "Kabb ou turr plopp"
+  },
+  {
+    original: "De Slimste Mens ter Wereld",
+    gibberish: "Dus limm stum ens, terr weer ut"
+  },
+  {
+    original: "Thuis",
+    gibberish: "Tu ys"
+  },
+  {
+    original: "Het Journaal",
+    gibberish: "Hetch oor na al"
+  },
+  {
+    original: "Studio 100",
+    gibberish: "Stuu die joo, honn durt"
+  },
+
+  // Categorie 3: Het Kerstdiner (Eten & Drinken)
+  // Dingen die letterlijk op tafel staan.
+  {
+    original: "Aardappelkroketten",
+    gibberish: "Aar dap pull, crow ket tun"
+  },
+  {
+    original: "Kalkoen met champignons",
+    gibberish: "Call coon, met sjam pie njon s"
+  },
+  {
+    original: "Gourmetten",
+    gibberish: "Goer met tun"
+  },
+  {
+    original: "Flesje wijn",
+    gibberish: "Fless jew ayn"
+  },
+  {
+    original: "Tomatensoep met balletjes",
+    gibberish: "Toe maat uns oep, meed bal let juss"
+  },
+  {
+    original: "IJstaart",
+    gibberish: "Ice staar t"
+  },
+  {
+    original: "Koffie met taart",
+    gibberish: "Coff iem et aar t"
+  },
+  {
+    original: "Een pintje bier",
+    gibberish: "Ump in tje bie r"
   },
   
-  // Categorie 5: Woorden & Doordenkers
+  // Categorie 4: Klassieke NL Kerstliedjes
   {
-    original: "Piek op de boom",
-    gibberish: "Pie koppe boon"
+    original: "Stille Nacht, Heilige Nacht",
+    gibberish: "Still un 8, hy lie gun 8"
   },
   {
-    original: "Sneeuwvlokken",
-    gibberish: "Snay uwv lokk un"
+    original: "O Denneboom",
+    gibberish: "Ooh den nuh bown"
+  },
+  {
+    original: "De herdertjes lagen bij nachte",
+    gibberish: "Duh herr durr tjes, laa gun bye nag tuh"
+  },
+  {
+    original: "Kling klokje klingelingeling",
+    gibberish: "Klink lochk juh, klinge ling uh link"
+  },
+  {
+    original: "Er is een kindeke geboren",
+    gibberish: "Err issun, kin duk uh, guh bo run"
+  },
+
+  // Categorie 5: Bekende Figuren & Begrippen
+  {
+    original: "De Kerstman",
+    gibberish: "Duk errs tmah n"
   },
   {
     original: "Home Alone",
-    gibberish: "Hoe mel own"
+    gibberish: "Hoo mah lown"
   },
   {
-    original: "Kerstballen",
-    gibberish: "Kers tbal lun"
+    original: "Mariah Carey",
+    gibberish: "Ma ry ah, care ree"
   },
   {
-    original: "Stalletje",
-    gibberish: "Stall ut yuh"
+    original: "Nieuwjaarsbrief",
+    gibberish: "Niel jar sbrif"
   },
   {
-    original: "Onder de kerstboom",
-    gibberish: "Onn durt, care sts boon"
-  },
-  {
-    original: "Pakjesavond",
-    gibberish: "Pak yus, ah vunt"
-  },
-  {
-    original: "Middernachtmis",
-    gibberish: "Mid dur, nagt miss"
+    original: "Drie Koningen",
+    gibberish: "Driek oon ink un"
   },
   {
     original: "Cadeautjes",
-    gibberish: "Cah doat yes"
+    gibberish: "Kaa doot juss"
   },
   {
-    original: "Kerstman",
-    gibberish: "Care st mahn"
+    original: "Vuurwerk",
+    gibberish: "Vuur werr k"
+  },
+  {
+    original: "Koning Filip",
+    gibberish: "Koon ink fee lip"
   }
 ]
 
