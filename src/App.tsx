@@ -13,7 +13,6 @@ import { toast } from 'sonner'
 import type { GameState, Player } from '@/lib/types'
 
 function App() {
-  const [isInitialized, setIsInitialized] = useState(false)
   const [gameState, setGameState] = useState<GameState>({
     phase: 'welcome',
     players: [],
@@ -32,20 +31,6 @@ function App() {
       for (const key of allKeys) {
         await window.spark.kv.delete(key)
       }
-      
-      setGameState({
-        phase: 'welcome',
-        players: [],
-        currentPlayerIndex: -1,
-        currentSong: null,
-        songs: createSongsList(),
-        roundNumber: 0,
-        categories: createCategories(),
-        currentCategoryIndex: 0,
-        songsUsedInCurrentRound: 0
-      })
-      
-      setIsInitialized(true)
     }
     
     initializeApp()
@@ -293,10 +278,6 @@ function App() {
       currentCategoryIndex: 0,
       songsUsedInCurrentRound: 0
     })
-  }
-
-  if (!isInitialized) {
-    return null
   }
 
   return (
