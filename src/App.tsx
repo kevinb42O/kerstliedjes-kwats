@@ -353,6 +353,7 @@ function App() {
           categoryName={gameState.categories?.[gameState.currentCategoryIndex ?? 0]?.name ?? 'Onbekende categorie'}
           songsUsedInRound={gameState.songsUsedInCurrentRound ?? 0}
           isFinale={isLastCategory(gameState.currentCategoryIndex ?? 0, gameState.categories || [])}
+          roundNumber={gameState.roundNumber}
         />
       )}
 

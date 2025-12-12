@@ -28,6 +28,7 @@ interface PlayingScreenProps {
   categoryName: string
   songsUsedInRound: number
   isFinale: boolean
+  roundNumber: number
 }
 
 export function PlayingScreen({
@@ -41,7 +42,8 @@ export function PlayingScreen({
   onEndGame,
   categoryName,
   songsUsedInRound,
-  isFinale
+  isFinale,
+  roundNumber
 }: PlayingScreenProps) {
   const [showSong, setShowSong] = useState(false)
   const [selectingGuesser, setSelectingGuesser] = useState(false)
@@ -52,7 +54,6 @@ export function PlayingScreen({
   const [showAnswer, setShowAnswer] = useState(false)
 
   const currentPlayer = players[currentPlayerIndex]
-  const roundNumber = useMemo(() => players.reduce((sum, p) => sum + p.score, 0) + 1, [players])
   const leaderScore = useMemo(() => Math.max(...players.map(p => p.score)), [players])
 
   useEffect(() => {
