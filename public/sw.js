@@ -50,7 +50,7 @@ self.addEventListener('fetch', (event) => {
       // Otherwise fetch from network
       return fetch(event.request).then((response) => {
         // Check if valid response
-        if (!response || response.status !== 200 || response.type !== 'basic') {
+        if (!response || response.status !== 200) {
           return response;
         }
         
@@ -60,6 +60,8 @@ self.addEventListener('fetch', (event) => {
         // Cache the new response for future use
         caches.open(CACHE_NAME).then((cache) => {
           cache.put(event.request, responseToCache);
+        }).catch((error) => {
+          console.error('Failed to cache response:', error);
         });
         
         return response;
