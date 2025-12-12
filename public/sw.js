@@ -50,7 +50,7 @@ self.addEventListener('fetch', (event) => {
       // Otherwise fetch from network
       return fetch(event.request).then((response) => {
         // Check if valid response
-        if (!response || response.status !== 200) {
+        if (!response || !response.ok) {
           return response;
         }
         
