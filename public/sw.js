@@ -1,11 +1,13 @@
 // Service Worker for Kerstliedjes Kwats PWA
-const CACHE_NAME = 'kerstliedjes-kwats-v1';
+const CACHE_NAME = 'kerstliedjes-kwats-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
   '/favicon.ico',
-  '/icon-192.png',
-  '/icon-512.png',
+  '/favicon-16x16.png',
+  '/favicon-32x32.png',
+  '/android-chrome-192x192.png',
+  '/android-chrome-512x512.png',
   '/apple-touch-icon.png',
   '/manifest.json'
 ];
