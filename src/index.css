@@ -121,34 +121,46 @@ body {
 /* Christmas Tree Styles */
 .christmas-tree {
   position: relative;
-  width: 400px;
-  height: 450px;
-  opacity: 0.15;
+  width: 800px;
+  height: 900px;
+  opacity: 0.25;
 }
 
 .tree-star {
   position: absolute;
-  top: -20px;
+  top: -40px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-bottom: 25px solid oklch(0.95 0.2 85);
-  filter: drop-shadow(0 0 10px oklch(0.95 0.2 85));
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 50px solid oklch(0.95 0.2 85);
+  filter: drop-shadow(0 0 20px oklch(0.95 0.2 85));
+  animation: star-pulse 2s ease-in-out infinite;
+}
+
+@keyframes star-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 20px oklch(0.95 0.2 85));
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 35px oklch(0.95 0.2 85));
+    transform: translateX(-50%) scale(1.1);
+  }
 }
 
 .tree-star::before {
   content: '';
   position: absolute;
-  top: 8px;
-  left: -15px;
+  top: 16px;
+  left: -30px;
   width: 0;
   height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 25px solid oklch(0.95 0.2 85);
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 50px solid oklch(0.95 0.2 85);
 }
 
 .tree-layer {
@@ -163,165 +175,280 @@ body {
 }
 
 .tree-layer-1 {
-  top: 20px;
-  border-left-width: 40px;
-  border-right-width: 40px;
-  border-bottom-width: 60px;
+  top: 40px;
+  border-left-width: 80px;
+  border-right-width: 80px;
+  border-bottom-width: 120px;
 }
 
 .tree-layer-2 {
-  top: 60px;
-  border-left-width: 60px;
-  border-right-width: 60px;
-  border-bottom-width: 70px;
+  top: 120px;
+  border-left-width: 120px;
+  border-right-width: 120px;
+  border-bottom-width: 140px;
 }
 
 .tree-layer-3 {
-  top: 110px;
-  border-left-width: 80px;
-  border-right-width: 80px;
-  border-bottom-width: 80px;
+  top: 220px;
+  border-left-width: 160px;
+  border-right-width: 160px;
+  border-bottom-width: 160px;
 }
 
 .tree-layer-4 {
-  top: 170px;
-  border-left-width: 100px;
-  border-right-width: 100px;
-  border-bottom-width: 90px;
+  top: 340px;
+  border-left-width: 200px;
+  border-right-width: 200px;
+  border-bottom-width: 180px;
 }
 
 .tree-layer-5 {
-  top: 240px;
-  border-left-width: 120px;
-  border-right-width: 120px;
-  border-bottom-width: 100px;
+  top: 480px;
+  border-left-width: 240px;
+  border-right-width: 240px;
+  border-bottom-width: 200px;
 }
 
 .tree-trunk {
   position: absolute;
-  bottom: 30px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 60px;
+  width: 80px;
+  height: 120px;
   background-color: oklch(0.35 0.08 40);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 /* Twinkling Christmas Lights */
 .light {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   animation: twinkle 1.5s infinite;
+  z-index: 10;
 }
 
 @keyframes twinkle {
   0%, 100% {
     opacity: 1;
     transform: scale(1);
-    filter: brightness(1);
+    filter: brightness(1.5);
+    box-shadow: 0 0 15px currentColor, 0 0 25px currentColor;
+  }
+  25% {
+    opacity: 0.4;
+    transform: scale(0.85);
+    filter: brightness(2.5);
+    box-shadow: 0 0 20px currentColor, 0 0 35px currentColor;
   }
   50% {
-    opacity: 0.3;
-    transform: scale(0.8);
+    opacity: 1;
+    transform: scale(1.15);
+    filter: brightness(2);
+    box-shadow: 0 0 25px currentColor, 0 0 40px currentColor;
+  }
+  75% {
+    opacity: 0.6;
+    transform: scale(0.9);
     filter: brightness(1.8);
+    box-shadow: 0 0 18px currentColor, 0 0 30px currentColor;
   }
 }
 
 .light-1 {
-  top: 40px;
-  left: 45%;
+  top: 80px;
+  left: 40%;
   background-color: #ff0000;
-  box-shadow: 0 0 10px #ff0000;
   animation-delay: 0s;
 }
 
 .light-2 {
-  top: 45px;
-  left: 55%;
+  top: 90px;
+  left: 60%;
   background-color: #00ff00;
-  box-shadow: 0 0 10px #00ff00;
-  animation-delay: 0.3s;
+  animation-delay: 0.15s;
 }
 
 .light-3 {
-  top: 80px;
-  left: 38%;
-  background-color: #0000ff;
-  box-shadow: 0 0 10px #0000ff;
-  animation-delay: 0.6s;
+  top: 75px;
+  left: 50%;
+  background-color: #ffd700;
+  animation-delay: 0.3s;
 }
 
 .light-4 {
-  top: 85px;
-  left: 62%;
-  background-color: #ffff00;
-  box-shadow: 0 0 10px #ffff00;
-  animation-delay: 0.9s;
+  top: 160px;
+  left: 35%;
+  background-color: #0000ff;
+  animation-delay: 0.45s;
 }
 
 .light-5 {
-  top: 130px;
-  left: 35%;
-  background-color: #ff00ff;
-  box-shadow: 0 0 10px #ff00ff;
-  animation-delay: 0.2s;
+  top: 170px;
+  left: 65%;
+  background-color: #ffff00;
+  animation-delay: 0.6s;
 }
 
 .light-6 {
-  top: 135px;
-  left: 65%;
-  background-color: #00ffff;
-  box-shadow: 0 0 10px #00ffff;
-  animation-delay: 0.5s;
+  top: 145px;
+  left: 50%;
+  background-color: #ff00ff;
+  animation-delay: 0.75s;
 }
 
 .light-7 {
-  top: 190px;
-  left: 32%;
-  background-color: #ff4500;
-  box-shadow: 0 0 10px #ff4500;
-  animation-delay: 0.8s;
+  top: 185px;
+  left: 45%;
+  background-color: #00ffff;
+  animation-delay: 0.9s;
 }
 
 .light-8 {
-  top: 195px;
-  left: 68%;
-  background-color: #9400d3;
-  box-shadow: 0 0 10px #9400d3;
-  animation-delay: 0.1s;
+  top: 190px;
+  left: 55%;
+  background-color: #ff4500;
+  animation-delay: 1.05s;
 }
 
 .light-9 {
   top: 260px;
-  left: 28%;
+  left: 32%;
   background-color: #ff1493;
-  box-shadow: 0 0 10px #ff1493;
-  animation-delay: 0.4s;
+  animation-delay: 0.2s;
 }
 
 .light-10 {
-  top: 265px;
-  left: 72%;
+  top: 270px;
+  left: 68%;
   background-color: #00ff7f;
-  box-shadow: 0 0 10px #00ff7f;
-  animation-delay: 0.7s;
+  animation-delay: 0.35s;
 }
 
 .light-11 {
-  top: 150px;
+  top: 240px;
   left: 50%;
-  background-color: #ffd700;
-  box-shadow: 0 0 10px #ffd700;
-  animation-delay: 1s;
+  background-color: #9400d3;
+  animation-delay: 0.5s;
 }
 
 .light-12 {
-  top: 220px;
-  left: 50%;
+  top: 285px;
+  left: 42%;
   background-color: #ff6347;
-  box-shadow: 0 0 10px #ff6347;
-  animation-delay: 1.3s;
+  animation-delay: 0.65s;
+}
+
+.light-13 {
+  top: 295px;
+  left: 58%;
+  background-color: #32cd32;
+  animation-delay: 0.8s;
+}
+
+.light-14 {
+  top: 380px;
+  left: 28%;
+  background-color: #ff0000;
+  animation-delay: 0.25s;
+}
+
+.light-15 {
+  top: 390px;
+  left: 72%;
+  background-color: #00ff00;
+  animation-delay: 0.4s;
+}
+
+.light-16 {
+  top: 360px;
+  left: 50%;
+  background-color: #ffd700;
+  animation-delay: 0.55s;
+}
+
+.light-17 {
+  top: 405px;
+  left: 38%;
+  background-color: #0000ff;
+  animation-delay: 0.7s;
+}
+
+.light-18 {
+  top: 415px;
+  left: 62%;
+  background-color: #ffff00;
+  animation-delay: 0.85s;
+}
+
+.light-19 {
+  top: 520px;
+  left: 25%;
+  background-color: #ff00ff;
+  animation-delay: 0.1s;
+}
+
+.light-20 {
+  top: 530px;
+  left: 75%;
+  background-color: #00ffff;
+  animation-delay: 1s;
+}
+
+.light-21 {
+  top: 500px;
+  left: 50%;
+  background-color: #ff4500;
+  animation-delay: 1.15s;
+}
+
+.light-22 {
+  top: 545px;
+  left: 35%;
+  background-color: #9400d3;
+  animation-delay: 0.12s;
+}
+
+.light-23 {
+  top: 555px;
+  left: 65%;
+  background-color: #ff1493;
+  animation-delay: 0.27s;
+}
+
+.light-24 {
+  top: 565px;
+  left: 45%;
+  background-color: #00ff7f;
+  animation-delay: 0.42s;
+}
+
+.light-25 {
+  top: 575px;
+  left: 55%;
+  background-color: #ff6347;
+  animation-delay: 0.57s;
+}
+
+.light-26 {
+  top: 610px;
+  left: 30%;
+  background-color: #32cd32;
+  animation-delay: 0.72s;
+}
+
+.light-27 {
+  top: 620px;
+  left: 70%;
+  background-color: #ff0000;
+  animation-delay: 0.87s;
+}
+
+.light-28 {
+  top: 590px;
+  left: 50%;
+  background-color: #00ff00;
+  animation-delay: 1.02s;
 }

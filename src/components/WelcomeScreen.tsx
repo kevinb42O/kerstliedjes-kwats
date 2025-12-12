@@ -24,19 +24,43 @@ export function WelcomeScreen({ onStart }: WelcomeScreenProps) {
           {/* Tree trunk */}
           <div className="tree-trunk"></div>
           
-          {/* Twinkling lights */}
+          {/* Twinkling lights - Layer 1 */}
           <div className="light light-1"></div>
           <div className="light light-2"></div>
           <div className="light light-3"></div>
+          
+          {/* Twinkling lights - Layer 2 */}
           <div className="light light-4"></div>
           <div className="light light-5"></div>
           <div className="light light-6"></div>
           <div className="light light-7"></div>
           <div className="light light-8"></div>
+          
+          {/* Twinkling lights - Layer 3 */}
           <div className="light light-9"></div>
           <div className="light light-10"></div>
           <div className="light light-11"></div>
           <div className="light light-12"></div>
+          <div className="light light-13"></div>
+          
+          {/* Twinkling lights - Layer 4 */}
+          <div className="light light-14"></div>
+          <div className="light light-15"></div>
+          <div className="light light-16"></div>
+          <div className="light light-17"></div>
+          <div className="light light-18"></div>
+          
+          {/* Twinkling lights - Layer 5 */}
+          <div className="light light-19"></div>
+          <div className="light light-20"></div>
+          <div className="light light-21"></div>
+          <div className="light light-22"></div>
+          <div className="light light-23"></div>
+          <div className="light light-24"></div>
+          <div className="light light-25"></div>
+          <div className="light light-26"></div>
+          <div className="light light-27"></div>
+          <div className="light light-28"></div>
         </div>
       </div>
 
