@@ -10,6 +10,7 @@ import { RoundTransition } from '@/components/RoundTransition'
 import { SnowfallBackground } from '@/components/SnowfallBackground'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
+import type { GameState, Player } from '@/lib/types'
 
 function App() {
   const [isInitialized, setIsInitialized] = useState(false)
@@ -283,7 +284,7 @@ function App() {
   }
 
   if (!isInitialized) {
-  if (!isInitialized) {
+    return null
   }
 
   return (
